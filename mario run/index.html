@@ -130,6 +130,68 @@ button{border:0;border-radius:12px;background:#f4cc52;color:#17202e;padding:14px
 #pausar,#acao{background:#33435d;color:#f5f8ff;border:1px solid #7183a2;border-radius:12px;font-size:24px;min-width:52px}
 #carregamento{position:absolute;inset:0;z-index:30;background:linear-gradient(145deg,#111e32,#253852);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;padding:24px;text-align:center}
 #carregamento h2{font-size:22px;margin:0;color:#e9f2ff}#carregamento progress{width:min(320px,85%);height:16px;accent-color:#79d5da;margin:0}#cargaTexto{font-size:14px;color:#c6d6eb}
+
+/* Poderes: os efeitos não dependem de arquivos externos. */
+.poderes{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0}
+.poderes button{position:relative;width:60px;height:54px;padding:5px;border:1px solid #7183a2;background:#33435d;color:#fff;font-size:26px;box-shadow:0 4px #172237}
+.poderes b{position:absolute;bottom:3px;right:5px;font-size:12px;background:#101623;border-radius:8px;padding:2px 5px}
+.poderes button[data-vazio="sim"]{opacity:.45}
+.poder-item,.projetil-poder,.efeito-poder{position:absolute;left:0;top:0;pointer-events:none;z-index:6;color:var(--cor);box-shadow:0 0 16px var(--cor)}
+.poder-item{width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--cor);border-radius:9px;background:#132139;font-size:21px}
+.projetil-poder{width:24px;height:18px;border-radius:50%;background:radial-gradient(ellipse,#fff,var(--cor));border:1px solid #fff}
+.projetil-poder::after{content:'';position:absolute;right:14px;top:3px;width:28px;height:10px;background:linear-gradient(90deg,transparent,var(--cor));border-radius:50%}
+.efeito-poder{border:3px solid var(--cor);border-radius:50%;background:radial-gradient(ellipse,transparent 40%,var(--cor));opacity:.7}
+.inimigo-gelo .ninja-corpo{filter:drop-shadow(0 0 6px #80eaff) saturate(.3)}
+.inimigo-fogo .ninja-corpo{filter:drop-shadow(0 0 7px #ff792d)}
+
+/* A faixa de poderes fica abaixo do piso, sem cobrir o ninja. */
+#tela{height:544px;border:1px solid #7393b94d;box-shadow:0 16px 45px #0006}
+.chao{height:124px;background:radial-gradient(ellipse at top,#ffffff15,transparent 70%),repeating-linear-gradient(115deg,transparent 0 23px,#0002 24px 26px),var(--soil)}
+#tela>.poderes{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);z-index:8;margin:0;flex-wrap:nowrap;gap:9px;padding:8px 12px;border:1px solid #b6d7ff38;border-radius:20px;background:#101b30e8;box-shadow:0 8px 25px #0006}
+.poderes button{width:54px;height:48px;border-radius:13px;background:linear-gradient(145deg,#445672,#26364f);border-color:#8294ad;transition:filter .15s,transform .15s}
+.poderes button:active{transform:translateY(2px);filter:brightness(1.3)}
+#poder-fogo{border-bottom:3px solid #ff862f}#poder-gelo{border-bottom:3px solid #80eaff}#poder-magia{border-bottom:3px solid #cf8cff}#poder-forca{border-bottom:3px solid #ffe178}
+#detalhesCenario{position:absolute;inset:0 0 124px;pointer-events:none;background-repeat:repeat-x;background-size:1200px 420px;opacity:.85}
+#atmosfera{position:absolute;inset:0 0 124px;pointer-events:none;background:radial-gradient(ellipse at 80% 15%,#fff6c433,transparent 48%),linear-gradient(transparent 60%,#d6f3ff18);mix-blend-mode:screen}
+#tela[data-tema="noite"] #atmosfera,#tela[data-tema="cristal"] #atmosfera{background:radial-gradient(ellipse at 75% 20%,#9bafff26,transparent 65%)}
+.bloco{border-color:#141d385c;background:linear-gradient(#ffffff25,transparent 35%),repeating-linear-gradient(0deg,transparent 0 15px,#0003 16px 18px),repeating-linear-gradient(90deg,var(--soil) 0 35px,#0004 36px 39px);border-top:5px solid var(--grass);box-shadow:inset 0 2px #fff4,0 5px 9px #0003}
+.poder-item{background:radial-gradient(circle at 35% 25%,#fff5,#152039 70%);outline:3px solid #ffffff0b}
+.projetil-poder[data-tipo="fogo"]{border-radius:60% 35% 35% 60%;background:radial-gradient(ellipse at 70%,#fff5b0,#ff972d 45%,#ff3c2d)}
+.projetil-poder[data-tipo="gelo"]{border-radius:0;clip-path:polygon(0 50%,35% 0,75% 15%,100% 50%,75% 85%,35% 100%);background:linear-gradient(25deg,#379acb,#edffff,#68d3fa)}
+.projetil-poder[data-tipo="magia"]{border:2px solid #f7e5ff;box-shadow:0 0 9px #fff,0 0 24px #bd6cff;background:radial-gradient(circle,#fff,#c07aff 40%,#713ace)}
+.particula-poder{position:absolute;left:0;top:0;pointer-events:none;z-index:6;border-radius:50%;background:var(--cor);box-shadow:0 0 6px var(--cor)}
+.efeito-poder[data-tipo="gelo"]{border-radius:8px;clip-path:polygon(50% 0,65% 30%,100% 20%,80% 50%,100% 80%,65% 70%,50% 100%,35% 70%,0 80%,20% 50%,0 20%,35% 30%)}
+.efeito-poder[data-tipo="magia"]{border-style:double;border-width:6px}
+@media(max-width:600px){#tela>.poderes{gap:8px;padding:6px 9px;bottom:9px}.poderes button{width:50px;height:48px;font-size:24px}main{padding:6px}.controles{margin-top:12px}}
+
+/* Animação ambiente: camada decorativa atrás de todas as entidades. */
+#cenarioAnimado{position:absolute;inset:0 0 124px;overflow:hidden;pointer-events:none;contain:layout paint}
+#arvoresVivas{position:absolute;left:0;top:0;width:2400px;height:420px;will-change:transform}
+.arvore-viva{position:absolute;bottom:-4px;width:130px;height:215px;transform-origin:50% 100%;will-change:transform;opacity:.9}
+.arvore-viva svg{width:100%;height:100%;overflow:visible}
+.arvore-viva .copa-viva{transform-origin:0 0}
+#luzesAmbiente{position:absolute;inset:0}
+.luz-ambiente{position:absolute;left:var(--x);top:var(--y);width:var(--tam,4px);height:var(--tam,4px);border-radius:50%;background:var(--luz,#eaffad);box-shadow:0 0 9px var(--luz,#eaffad);animation:flutuarLuz var(--duracao,8s) ease-in-out infinite alternate;animation-delay:var(--atraso,0s);opacity:.6}
+.luz-ambiente.neve{box-shadow:none;animation-name:cairNeve;animation-timing-function:linear}
+.luz-ambiente.petala{border-radius:70% 10% 65% 20%;box-shadow:none;animation-name:cairPetala;animation-timing-function:linear}
+.luz-ambiente.brasa{animation-name:subirBrasa;animation-timing-function:linear}
+.luz-ambiente.estrela{animation-name:piscarEstrela}
+#tela:not([data-animando="sim"]) #cenarioAnimado *{animation-play-state:paused!important}
+
+
+@keyframes flutuarLuz{0%{transform:translate(-12px,15px);opacity:.15}45%{opacity:.85}100%{transform:translate(24px,-30px);opacity:.25}}
+@keyframes cairNeve{0%{transform:translate(-15px,-100px);opacity:0}20%,75%{opacity:.75}100%{transform:translate(40px,150px);opacity:0}}
+@keyframes cairPetala{0%{transform:translate(-25px,-100px) rotate(0);opacity:0}20%,75%{opacity:.7}100%{transform:translate(75px,160px) rotate(230deg);opacity:0}}
+@keyframes subirBrasa{0%{transform:translate(0,65px) scale(1);opacity:0}30%{opacity:.9}100%{transform:translate(35px,-160px) scale(.3);opacity:0}}
+@keyframes piscarEstrela{from{opacity:.15;transform:scale(.7)}to{opacity:.8;transform:scale(1.15)}}
+@media(prefers-reduced-motion:reduce){#cenarioAnimado *{animation:none!important}#arvoresVivas{will-change:auto}}
+
+#player[data-conjurando="sim"] .ninja-espada{opacity:0}
+#player .braco-frente>i::after{content:'';position:absolute;left:-5px;bottom:-5px;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle,#fff 10%,var(--cor-magia,#b7a0ff) 45%,transparent 72%);box-shadow:0 0 18px var(--cor-magia,#b7a0ff);opacity:0}
+#player[data-conjurando="sim"] .braco-frente>i::after{opacity:var(--brilho-magia,1)}
+#cenarioAnimado .arvore-viva{animation:none!important}
+#cenarioAnimado .copa-viva{animation:none!important}
+#atmosfera::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 25%,#fff8d50a 26%,#fff8d51a 29%,transparent 33%,transparent 45%,#fff8d512 48%,transparent 51%);pointer-events:none}
 </style>
 </head>
 <body>
@@ -139,11 +201,13 @@ button{border:0;border-radius:12px;background:#f4cc52;color:#17202e;padding:14px
 
 <div id="tela" data-tema="dia" aria-label="Jogo de plataformas">
 <div id="paisagem" aria-hidden="true"></div><div id="montanhas" aria-hidden="true"></div>
-<div id="mundo"></div>
+<div id="detalhesCenario" aria-hidden="true"></div><div id="cenarioAnimado" aria-hidden="true"><div id="arvoresVivas"></div><div id="luzesAmbiente"></div></div><div id="atmosfera" aria-hidden="true"></div><div id="mundo"></div>
 <div id="carregamento" role="status" aria-live="polite"><h2>Preparando a aventura</h2><progress id="cargaBarra" max="100" value="0" aria-label="Carregamento"></progress><p id="cargaTexto">Carregando imagens e sons…</p></div>
+<div class="poderes" role="group" aria-label="Poderes especiais"><button id="poder-fogo" type="button" title="Fogo — tecla 1" aria-label="Fogo"><span aria-hidden="true">🔥</span><b>0</b></button><button id="poder-gelo" type="button" title="Gelo — tecla 2" aria-label="Gelo"><span aria-hidden="true">❄</span><b>0</b></button><button id="poder-magia" type="button" title="Magia — tecla 3" aria-label="Magia"><span aria-hidden="true">✦</span><b>0</b></button><button id="poder-forca" type="button" title="Golpe poderoso — tecla 4" aria-label="Golpe poderoso"><span aria-hidden="true">⚡</span><b>0</b></button></div>
 <div id="painel"><h2 id="titulo">Explore doze mundos</h2><p id="mensagem"></p><button id="acao" aria-label="Iniciar aventura" disabled>▶</button></div>
 </div>
 <div class="controles"><div class="direcoes"><button id="esquerda" aria-label="Correr para trás">◀</button><button id="direita" aria-label="Correr para frente">▶</button></div><button id="agachar" aria-label="Agachar">▼</button><button id="atacar" aria-label="Atacar">⚔</button><button id="pular" aria-label="Pular">▲</button></div>
+
 <p id="aviso" role="status" aria-live="polite"></p>
 
 <p class="creditos">Controles: ← → correr · ▲ pular · ▼ agachar (agachado + ⚔ = chute rasteiro, ignora escudos) · ⚔ combo de 4 golpes (3º e 4º são estocadas). Personagens e cenários desenhados em código, sem imagens externas para os ninjas.</p></main>
@@ -166,12 +230,18 @@ function fundoSVG([c1,c2,m1,m2,deco,cd,fl='']){
  s+=fl.includes('l')?`<circle cx="960" cy="75" r="30" fill="#eff3db"/><circle cx="974" cy="67" r="26" fill="${c1}"/>`:`<circle cx="970" cy="75" r="50" fill="#fff4bc" opacity=".15"/><circle cx="970" cy="75" r="32" fill="#fff4bc"/><path d="M130 70q20-30 45-10q30-40 60 0q50 0 45 20H130zM420 110q20-30 45-10q30-40 60 0q50 0 45 20H420z" fill="#fff" opacity=".35"/>`;
  s+=`<path d="M0 420V280Q65 210 140 290Q210 220 280 280Q350 200 420 285Q490 210 560 280Q630 200 700 290Q770 200 840 285Q910 210 980 280Q1050 220 1120 285Q1170 240 1200 290V420z" fill="${m1}"/><path d="M0 420V355Q65 300 140 355Q210 300 280 360Q350 290 420 350Q490 300 560 360Q630 300 700 355Q770 310 840 355Q910 300 980 360Q1050 300 1120 355Q1170 330 1200 350V420z" fill="${m2}"/>`;
  for(let i=0;i<6;i++){const x=70+180*i;
-  if(deco==='arvore')s+=`<path d="M${x} 350v-90" stroke="#59484c" stroke-width="10"/><g fill="${cd}"><circle cx="${x}" cy="240" r="38"/><circle cx="${x-25}" cy="265" r="32"/><circle cx="${x+25}" cy="265" r="34"/></g>`;
+  if(deco==='arvore')s+=`<g transform="translate(0 180) scale(1 .5)" opacity=".45"><path d="M${x} 350v-90" stroke="#59484c" stroke-width="10"/><g fill="${cd}"><circle cx="${x}" cy="240" r="38"/><circle cx="${x-25}" cy="265" r="32"/><circle cx="${x+25}" cy="265" r="34"/></g></g>`;
   else if(deco==='cacto')s+=`<path d="M${x} 350v-80m0 40h-22v-28m22 12h22v-35" fill="none" stroke="${cd}" stroke-width="12" stroke-linecap="round"/>`;
   else if(deco==='cristal'||deco==='gelo')s+=`<path d="M${x} 362l15-85 20-30 30 90-20 25z" fill="${cd}"/><path d="M${x+15} 277l20-30v110" fill="#e5faff" opacity=".6"/>`;
   else if(deco==='torre')s+=`<path d="M${x} 360v-105h12v-18h14v18h15v-18h14v123z" fill="${cd}"/><path d="M${x+18} 295v-18h10v18" stroke="#ecd89b" stroke-width="5" fill="none"/>`;
   else if(deco==='vulcao')s+=`<path d="M${x} 360l55-130 20 10 15-10 60 130z" fill="#532f41"/><path d="M${x+55} 230l15 55 10-45 10-10z" fill="#ffab5f"/>`;
   else if(deco==='ilha')s+=`<path d="M${x} ${260+(i%2)*14}h120l-60 65z" fill="#858baa"/><ellipse cx="${x+60}" cy="${260+(i%2)*14}" rx="60" ry="14" fill="#c6e6d6"/>`;
+ }
+
+ // Relief, distant ridges and reflected light give each palette more depth.
+ s+=`<path d="M0 405 Q220 375 420 407 T820 405 T1200 405 V420 H0Z" fill="${c2}" opacity=".16"/>`;
+ for(let i=0;i<18;i++){const x=(i*137)%1200,y=365+(i%4)*12;
+  s+=`<path d="M${x} ${y}l6-13 3 13 7-8-3 12" stroke="${cd||m1}" stroke-width="2" fill="none" opacity=".6"/>`;
  }
  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s+'</svg>');
 }
@@ -335,19 +405,241 @@ function animarNinja(n=player){
   estilo.setProperty('--cotovelo-livre',(15+65*b)+'deg');
   if(!golpe){valores['--braco-a']=-90+30*b;estilo.setProperty('--cotovelo',(15+65*a)+'deg');}
  }
+
+ if(n===player){
+  n.el.dataset.conjurando=n.conjuracao?'sim':'nao';
+  if(n.conjuracao){
+   const t=n.conjuracao.t,preparo=suave(t/.18),volta=suave((t-.36)/.24),peso=1-volta;
+   const misturar=(chave,alvo)=>valores[chave]+=(alvo-valores[chave])*peso;
+   misturar('--braco-a',-35-55*preparo);misturar('--braco-b',-65-20*preparo);
+   misturar('--inclinacao',n.rastejando?0:5+8*preparo);
+   estilo.setProperty('--cotovelo',(-100+95*preparo)+'deg');
+   estilo.setProperty('--cotovelo-livre',(-90+75*preparo)+'deg');
+   estilo.setProperty('--arco-opacidade','0');
+   estilo.setProperty('--brilho-magia',String(peso));
+  }
+ }
  for(const [nome,v] of Object.entries(valores))estilo.setProperty(nome,v+'deg');
  const resp=ar?0:n.rastejando?0:agach?1+Math.sin(tempoAnimacao*3)*.4:correndo?3-(1-Math.cos((n.ciclo||0)*2))*forca:8+Math.sin(tempoAnimacao*3)*.5;
  estilo.setProperty('--respirar',(resp+p*6+lunge*4)+'px');
 }
+
+const PODERES={
+ fogo:{nome:'Fogo',icone:'🔥',cor:'#ff862f',dano:3},
+ gelo:{nome:'Gelo',icone:'❄',cor:'#80eaff',dano:1},
+ magia:{nome:'Magia',icone:'✦',cor:'#cf8cff',dano:3},
+ forca:{nome:'Golpe poderoso',icone:'⚡',cor:'#ffe178',dano:5}
+};
+const cargas={fogo:0,gelo:0,magia:0,forca:0},MAX_CARGAS=6;
+let projeteis=[],efeitosPoder=[],recargaPoder=0;
+
+function detalheCenario(tema){
+ let svg='<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">';
+ for(let i=0;i<12;i++){
+  const x=30+i*103,y=350+(i%3)*20;
+  if(['dia','floresta','sakura'].includes(tema)){
+   const cor=tema==='sakura'?'#efa8c8':tema==='floresta'?'#16594e':'#286653';
+   svg+=`<ellipse cx="${x+7}" cy="411" rx="34" ry="12" fill="${cor}" opacity=".6"/><circle cx="${x+26}" cy="${y+20}" r="3" fill="#ffe5a1"/>`;
+  }else if(['gelo','cristal'].includes(tema))svg+=`<path d="M${x} 415l13-63 16 31 11-17 15 49Z" fill="${tema==='gelo'?'#a0ddeb':'#9b74d1'}" opacity=".7"/><path d="M${x+13} 352l4 63" stroke="#edfdff" opacity=".6"/>`;
+  else if(['ruinas','aurora'].includes(tema))svg+=`<path d="M${x} 420v-65h24v65m-30-65h36v-9h-36z" fill="#25374e"/><path d="M${x+6} 360v50m10-50v50" stroke="#8296a5" opacity=".3"/>`;
+  else if(tema==='vulcao')svg+=`<path d="M${x} 420l15-38 22 20 9-12 25 30Z" fill="#392b3b"/><path d="M${x+15} 384l6 20-4 16" stroke="#ffb35b" fill="none"/>`;
+  else svg+=`<path d="M${x} 420q15-24 39-6l16 6Z" fill="#58768a" opacity=".4"/><path d="M${x} ${80+i%3*24}q35-12 90 0" stroke="#fff" stroke-width="4" opacity=".16" fill="none"/>`;
+ }
+
+ for(let i=0;i<32;i++){
+  const x=(i*79+17)%1200,y=400+(i%3)*5;
+  if(['dia','floresta','sakura','tarde'].includes(tema)){
+   svg+=`<path d="M${x} 420q-7-12-3-21m3 21q6-18 11-14" stroke="#476d56" stroke-width="2" fill="none"/><circle cx="${x-3}" cy="${y}" r="3" fill="${i%2?'#eecb89':'#eaa8be'}"/><circle cx="${x-3}" cy="${y}" r="1" fill="#fff5d5"/>`;
+  }else svg+=`<path d="M${x} 419l4-6 10 1 5 5Z" fill="#a1b1c0" opacity=".3"/>`;
+ }
+ if(['ruinas','aurora','floresta'].includes(tema))for(let i=0;i<4;i++){
+  const x=140+i*290;svg+=`<path d="M${x} 415v-32m-7 0h14l-2-15h-10Z" stroke="#63787b" fill="#ffe6a0" stroke-width="3"/><circle cx="${x}" cy="375" r="15" fill="#ffe3a5" opacity=".08"/>`;
+ }
+ return 'url("data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg+'</svg>')+'")';
+}
+let particulasPoder=[];
+const poucoMovimento=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function faiscas(tipo,x,y,quantidade=12){
+ if(poucoMovimento)quantidade=Math.min(quantidade,3);
+ for(let i=0;i<quantidade&&particulasPoder.length<100;i++){
+  const el=document.createElement('i'),a=Math.random()*Math.PI*2,v=35+Math.random()*140,t=.25+Math.random()*.35;
+  el.className='particula-poder';el.style.setProperty('--cor',PODERES[tipo].cor);
+  const tamanho=tipo==='gelo'?5:2+Math.random()*4;el.style.width=tamanho+'px';el.style.height=tamanho+'px';
+  if(tipo==='gelo')el.style.borderRadius='1px';$('mundo').appendChild(el);
+  particulasPoder.push({el,x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,t,vida:t});
+ }
+}
+function moverParticulas(dt){
+ particulasPoder=particulasPoder.filter(p=>{
+  p.t-=dt;if(p.t<=0){p.el.remove();return false;}
+  p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=170*dt;
+  p.el.style.transform=`translate(${p.x}px,${p.y}px) rotate(${p.t*240}deg)`;
+  p.el.style.opacity=String(p.t/p.vida);return true;
+ });
+}
+
+function painelPoderes(){
+ for(const [tipo,p] of Object.entries(PODERES)){
+  const b=$('poder-'+tipo);b.querySelector('b').textContent=cargas[tipo];
+  b.dataset.vazio=cargas[tipo]===0?'sim':'nao';
+  b.setAttribute('aria-label',`${p.nome}: ${cargas[tipo]} cargas`);
+ }
+}
+function criarItemPoder(tipo,x,y){
+ const p=PODERES[tipo],el=document.createElement('div');
+ el.className='poder-item';el.textContent=p.icone;el.style.setProperty('--cor',p.cor);
+ el.setAttribute('aria-label',p.nome);$('mundo').appendChild(el);
+ itens.push({tipo:'poder',poder:tipo,x,y,w:30,h:30,el,ativo:true});
+}
+function poderAleatorio(){const tipos=Object.keys(PODERES);return tipos[Math.floor(Math.random()*tipos.length)];}
+function distribuirPoderes(){
+ // Um item por trecho: posições e tipos variam a cada partida.
+ for(let trecho=0;trecho<5;trecho++){
+  const candidatas=plataformas.filter(p=>p.x>=200+trecho*900&&p.x<1100+trecho*900);
+  if(!candidatas.length)continue;
+  const p=candidatas[Math.floor(Math.random()*candidatas.length)];
+  criarItemPoder(poderAleatorio(),p.x+p.w-32,p.y-30);
+ }
+}
+function soltarPoder(e){
+ if(sobreAgua(e)||(!e.chefe&&Math.random()>=.32))return;
+ const x=Math.max(0,Math.min(LARGURA-30,e.x+e.w/2-15));
+ const piso=plataformas.filter(p=>p.y>=e.y+e.h-2&&x+15>=p.x&&x+15<=p.x+p.w).sort((a,b)=>a.y-b.y)[0];
+ criarItemPoder(poderAleatorio(),x,(piso?piso.y:CHAO)-30);
+}
+function efeitoPoder(tipo,x,y,w=45,h=45){
+ const el=document.createElement('div');el.className='efeito-poder';el.dataset.tipo=tipo;faiscas(tipo,x+w/2,y+h/2,tipo==='forca'?24:14);
+ el.style.setProperty('--cor',PODERES[tipo].cor);el.style.width=w+'px';el.style.height=h+'px';
+ el.style.transform=`translate(${x}px,${y}px)`;$('mundo').appendChild(el);
+ efeitosPoder.push({el,t:0,x,y});
+}
+function acertarPoder(e,tipo,face){
+ if(!e.ativo||e.imune>0)return false;
+ const antes=e.hp;ferirInimigo(e,PODERES[tipo].dano,face*(tipo==='forca'?620:180),false,4);
+ if(e.hp>=antes)return false;
+ efeitoPoder(tipo,e.x,e.y,e.w,e.h);
+ if(e.ativo&&tipo==='fogo'){e.queimando=3;e.tickFogo=.8;}
+ if(e.ativo&&tipo==='gelo')e.gelado=e.chefe?1.5:3;
+ return true;
+}
+function usarPoder(tipo){
+ if(estado!=='jogando'||!PODERES[tipo]||recargaPoder>0)return;
+ if(!cargas[tipo]){aviso(`Encontre um cristal de ${PODERES[tipo].nome.toLowerCase()}.`);return;}
+ cargas[tipo]--;recargaPoder=.7;painelPoderes();
+ player.ataque=null;player.comboFila=0;player.mortal=false;
+ player.conjuracao={tipo,t:0,face:direcao,lancado:false};
+ player.el.style.setProperty('--cor-magia',PODERES[tipo].cor);
+}
+function lancarPoder(tipo,face){
+ som('somEspada');
+ const cy=player.y+player.h*.55;
+ faiscas(tipo,player.x+player.w/2+face*20,cy,12);
+ if(tipo==='forca'){
+  const inicio=player.x+player.w/2;let limite=inicio+face*165;
+  // A onda é interrompida por paredes, inclusive ao atacar rastejando.
+  for(const p of plataformas)if(p.y<cy+26&&p.y+p.h>cy-26){
+   if(face>0&&p.x>=inicio)limite=Math.min(limite,p.x);
+   if(face<0&&p.x+p.w<=inicio)limite=Math.max(limite,p.x+p.w);
+  }
+  const area={x:Math.min(inicio,limite),y:cy-26,w:Math.abs(limite-inicio),h:52};
+  efeitoPoder(tipo,area.x,area.y,area.w,area.h);
+  for(const e of inimigos)if(sobrepoe(area,e))acertarPoder(e,tipo,face);
+ }else{
+  const el=document.createElement('div');el.className='projetil-poder';el.dataset.tipo=tipo;el.style.setProperty('--cor',PODERES[tipo].cor);$('mundo').appendChild(el);
+  projeteis.push({tipo,x:player.x+player.w/2-12,y:cy-9,w:24,h:18,face,vx:face*560,t:1.8,el,alvos:new Set()});
+ }
+}
+function atualizarPoderes(dt){
+ moverParticulas(dt);
+ if(player.conjuracao){
+  const c=player.conjuracao;c.t+=dt;
+  if(c.t>=.18&&!c.lancado){c.lancado=true;lancarPoder(c.tipo,c.face);}
+  if(c.t>=.6)player.conjuracao=null;
+ }
+ recargaPoder=Math.max(0,recargaPoder-dt);
+ for(const e of inimigos){
+  if(!e.ativo)continue;
+  e.gelado=Math.max(0,(e.gelado||0)-dt);
+  if(e.queimando>0){
+   e.queimando=Math.max(0,e.queimando-dt);e.tickFogo-=dt;
+   if(e.tickFogo<=0&&e.imune<=0){e.tickFogo=.8;ferirInimigo(e,1,0,false,4);}
+  }
+  e.el.classList.toggle('inimigo-gelo',e.gelado>0);
+  e.el.classList.toggle('inimigo-fogo',e.queimando>0);
+ }
+ for(const p of projeteis){
+  p.x+=p.vx*dt;p.t-=dt;p.trilha=(p.trilha||0)+dt;if(p.trilha>.045){p.trilha=0;faiscas(p.tipo,p.x+12,p.y+9,2);}
+  if(plataformas.some(b=>sobrepoe(p,b))||p.x<0||p.x>LARGURA)p.t=0;
+  if(p.t>0)for(const e of inimigos){
+   if(!e.ativo||p.alvos.has(e)||!sobrepoe(p,e))continue;
+   if(acertarPoder(e,p.tipo,p.face)){
+    p.alvos.add(e);if(p.tipo!=='magia'||p.alvos.size>=3){p.t=0;break;}
+   }
+  }
+  p.el.style.transform=`translate(${p.x}px,${p.y}px) scaleX(${p.face})`;
+  if(p.t<=0)p.el.remove();
+ }
+ projeteis=projeteis.filter(p=>p.t>0);
+ efeitosPoder=efeitosPoder.filter(f=>{f.t+=dt;f.el.style.transform=`translate(${f.x}px,${f.y}px) scale(${1+f.t*(poucoMovimento?0:1.5)})`;f.el.style.opacity=String(Math.max(0,1-f.t/.35));if(f.t>=.35){f.el.remove();return false;}return true;});
+}
+for(const tipo of Object.keys(PODERES)){
+ const b=$('poder-'+tipo);
+ b.addEventListener('pointerdown',e=>{e.preventDefault();usarPoder(tipo);});
+ b.addEventListener('click',e=>{if(e.detail===0)usarPoder(tipo);});
+ b.addEventListener('contextmenu',e=>e.preventDefault());
+}
+painelPoderes();
+
 function bloco(x,y,w=120,h=28){const el=document.createElement('div');el.className='bloco';Object.assign(el.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});$('mundo').appendChild(el);plataformas.push({x,y,w,h});}
 function item(tipo,x,y){const arquivo={moeda:'coin.gif',ouro:'ouro.gif',vida:'vida.gif'}[tipo];const el=sprite(arquivo,tipo,30,30,{moeda:'🪙',ouro:'💰',vida:'❤️'}[tipo]);itens.push({tipo,x,y,w:30,h:30,el,ativo:true});}
 function novoInimigo(el,tipo,x,y,w,h,min,max,vel,hp,poder){
  el.querySelector('.barra-vida').setAttribute('aria-valuemax',String(hp));
  inimigos.push({x,y,w,h,min,max,dir:1,vel,perseguindo:false,el,ativo:true,tipo,hp,maxHp:hp,poder,imune:0,ciclo:0,vx:0,vy:0,noChao:true,puloEspera:0,dashEspera:0,ataque:null,esperaAtaque:0,face:1,escudo:tipo==='cinza'&&fase>0,chefe:tipo==='chefe'});
 }
+
+let arvoresAnimadas=[],tempoVento=0;
+function animarArvores(dt){
+ tempoVento+=dt;
+ for(const a of arvoresAnimadas){
+  const onda=Math.sin(tempoVento*a.velocidade+a.fase);
+  const rajada=Math.sin(tempoVento*1.9+a.fase)*.65;
+  const intensidade=poucoMovimento?.3:1;
+  a.el.style.transform=`rotate(${(onda*8+rajada)*intensidade}deg)`;
+  // Atributos SVG funcionam também nos navegadores móveis sem transform-box.
+  a.copa.setAttribute('transform',`translate(${onda*7*intensidade} 0) rotate(${(onda*7+rajada*2)*intensidade} 65 125)`);
+ }
+}
+function prepararAmbiente(){
+ arvoresAnimadas=[];tempoVento=0;
+ const tema=FASES[fase].tema,arvores=$('arvoresVivas'),luzes=$('luzesAmbiente');
+ arvores.replaceChildren();luzes.replaceChildren();
+ // A faixa se repete a cada 1200 px para acompanhar a câmera sem criar centenas de árvores.
+ if(['dia','tarde','noite','floresta','sakura'].includes(tema)){
+  const cor=tema==='sakura'?'#df9ebe':tema==='noite'?'#234758':tema==='tarde'?'#835973':'#27664f';
+  for(let i=0;i<12;i++){
+   const n=i%6,el=document.createElement('div');el.className='arvore-viva';
+   el.style.left=(i*200+24)+'px';el.style.height=(150+(n*37)%90)+'px';
+   el.style.setProperty('--duracao',(5+n*.6)+'s');el.style.setProperty('--atraso',(-n*1.3)+'s');
+   el.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 220"><path d="M59 220L63 84h7l7 136Z" fill="#394348"/><path d="M66 158L35 121m33 17 30-35" stroke="#394348" stroke-width="5" fill="none"/><g class="copa-viva" fill="${cor}"><ellipse cx="65" cy="65" rx="40" ry="48"/><ellipse cx="35" cy="100" rx="31" ry="36"/><ellipse cx="94" cy="97" rx="31" ry="39"/><ellipse cx="65" cy="113" rx="40" ry="33"/><path d="M38 53q25-35 49 0M18 95q18-28 39-8M75 85q25-18 34 8" stroke="#ffffff" stroke-opacity=".12" stroke-width="7" fill="none" stroke-linecap="round"/></g></svg>`;
+   el.style.transformOrigin='50% 100%';el.style.animation='none';arvores.appendChild(el);arvoresAnimadas.push({el,copa:el.querySelector('.copa-viva'),fase:n*.85,velocidade:1.15+n*.09});
+  }
+ }
+ const neve=tema==='gelo'||tema==='ceu',petala=tema==='sakura',brasa=tema==='vulcao';
+ const estrela=['noite','ruinas','aurora','cristal'].includes(tema);
+ const cor=neve?'#e9fbff':petala?'#ffd1e4':brasa?'#ffad59':estrela?'#bbd6ff':tema==='deserto'?'#ffe3a2':'#d9ffa2';
+ for(let i=0;i<24;i++){
+  const el=document.createElement('i');el.className='luz-ambiente '+(neve?'neve':petala?'petala':brasa?'brasa':estrela&&i%2?'estrela':'');
+  el.style.setProperty('--x',((i*43+7)%100)+'%');el.style.setProperty('--y',(brasa?65+(i*7)%30:10+(i*29)%78)+'%');
+  el.style.setProperty('--tam',(petala?5+i%3:2+i%3)+'px');el.style.setProperty('--luz',cor);
+  el.style.setProperty('--duracao',(4+(i%7)*1.2)+'s');el.style.setProperty('--atraso',(-i*.91)+'s');luzes.appendChild(el);
+ }
+ animarArvores(0);
+ $('tela').dataset.animando=estado==='jogando'?'sim':'nao';
+}
+
 function carregarFase(){
- limparControles();parada=0;$('mundo').replaceChildren();$('mundo').style.width=LARGURA+'px';plataformas=[];itens=[];inimigos=[];fragmentos=[];aguas=[];peixes=[];ultimoSeguro=50;
- $('tela').dataset.tema=FASES[fase].tema;$('paisagem').style.backgroundImage=`url("${FASES[fase].fundo}")`;$('tela').style.setProperty('--soil',FASES[fase].solo);$('tela').style.setProperty('--grass',FASES[fase].borda);$('nomeFase').textContent=`Fase ${fase+1} · ${FASES[fase].nome}`;
+ limparControles();parada=0;projeteis=[];efeitosPoder=[];particulasPoder=[];recargaPoder=0;$('mundo').replaceChildren();$('mundo').style.width=LARGURA+'px';plataformas=[];itens=[];inimigos=[];fragmentos=[];aguas=[];peixes=[];ultimoSeguro=50;
+ $('tela').dataset.tema=FASES[fase].tema;$('paisagem').style.backgroundImage=`url("${FASES[fase].fundo}")`;$('tela').style.setProperty('--soil',FASES[fase].solo);$('tela').style.setProperty('--grass',FASES[fase].borda);$('detalhesCenario').style.backgroundImage=detalheCenario(FASES[fase].tema);$('nomeFase').textContent=`Fase ${fase+1} · ${FASES[fase].nome}`;
  aguas.push({x:1580+(fase%3)*800,w:120+(fase%3)*10});
  let inicio=0;
  for(const trecho of [...aguas,{x:LARGURA,w:0}]){
@@ -373,6 +665,7 @@ function carregarFase(){
   if(vermelho)el.classList.add('ninja-vermelho');
   novoInimigo(el,cao?'dog':vermelho?'vermelho':'cinza',x,CHAO-h,w,h,b+710,b+745,65+fase*6,(cao?2:vermelho?4:3)+Math.floor(fase/2),(cao?18:20)+fase*2);
  }
+ distribuirPoderes();
  const flag=document.createElement('div');flag.className='bandeira';flag.style.left=(LARGURA-120)+'px';const flagText=document.createElement('span');flagText.textContent='CHEGADA';flag.appendChild(flagText);$('mundo').appendChild(flag);
  for(let i=0;i<2;i++){const el=document.createElement('span');el.className='piranha saltadora';el.innerHTML='<i></i>';$('mundo').appendChild(el);peixes.push({el,x:0,y:445,w:23,h:13,t:i*1.6});}
  for(let i=0;i<(fase>0?fase*5+2:0);i++){
@@ -385,14 +678,16 @@ function carregarFase(){
  {const el=criarNinja(true);el.classList.add('ninja-chefe','chefe');el.style.width='66px';el.style.height='90px';el.setAttribute('aria-label','Ninja chefe');
   novoInimigo(el,'chefe',LARGURA-420,CHAO-90,66,90,LARGURA-520,LARGURA-300,80,12+fase*2,30+fase*2);}
  const el=criarNinja();const hpbar=document.createElement('div');hpbar.className='barra-vida barra-jogador';hpbar.setAttribute('role','progressbar');hpbar.setAttribute('aria-label','Saúde do jogador');hpbar.setAttribute('aria-valuemin','0');hpbar.setAttribute('aria-valuemax','100');hpbar.innerHTML='<i></i>';el.appendChild(hpbar);player={x:50,y:CHAO-60,w:44,h:60,vx:0,vy:0,noChao:true,imune:0,ciclo:0,mortal:false,tempoMortal:0,ataque:null,esperaAtaque:0,comboFila:0,el};
+ prepararAmbiente();
  camera=0;direcao=1;tempoAnimacao=0;coyote=.1;tempoAnterior=null;placar();desenhar();
 }
-function mostrarPainel(titulo,mensagem,botao){$('titulo').textContent=titulo;$('mensagem').textContent=mensagem;$('acao').textContent=(estado==='fim'||estado==='vitoria')?'↻':'▶';$('acao').setAttribute('aria-label',botao);$('painel').classList.remove('oculto');limparControles();$('musica').pause();pararCorrida();$('pausar').disabled=true;$('acao').focus();}
-function jogar(){estado='jogando';$('painel').classList.add('oculto');$('pausar').disabled=false;tempoAnterior=null;som('musica',false);}
+function mostrarPainel(titulo,mensagem,botao){$('tela').dataset.animando='nao';$('titulo').textContent=titulo;$('mensagem').textContent=mensagem;$('acao').textContent=(estado==='fim'||estado==='vitoria')?'↻':'▶';$('acao').setAttribute('aria-label',botao);$('painel').classList.remove('oculto');limparControles();$('musica').pause();pararCorrida();$('pausar').disabled=true;$('acao').focus();}
+function jogar(){estado='jogando';$('tela').dataset.animando='sim';$('painel').classList.add('oculto');$('pausar').disabled=false;tempoAnterior=null;som('musica',false);}
 function acao(){
  if(!pronto)return;
  if(estado==='pausa'){jogar();return;}
  if(estado==='proxima'){fase++;carregarFase();jogar();aviso(`Fase ${fase+1}: ${FASES[fase].nome}`);return;}
+ for(const tipo of Object.keys(cargas))cargas[tipo]=0;painelPoderes();
  fase=0;pontos=0;moedas=0;ouro=0;vidas=MAX_VIDAS;saude=100;carregarFase();jogar();
 }
 function pausar(){if(estado!=='jogando')return;estado='pausa';mostrarPainel('Jogo pausado','Seu progresso está guardado nesta partida.','Continuar');}
@@ -419,7 +714,7 @@ function iniciarGolpe(n,etapa=1){
  n.ataque={poseInicial,t:0,duracao:n===player?(etapa===5?.5:etapa===4?.68:.55):.75,de,para:etapa===2?25:-155,etapa,alvos:new Set(),face:n===player?direcao:n.face};
 }
 function pedirAtaque(){
- if(estado!=='jogando')return;
+ if(estado!=='jogando'||player.conjuracao)return;
  if(player.ataque){if(player.ataque.etapa<4)player.comboFila=Math.min(4-player.ataque.etapa,player.comboFila+1);}
  else if(player.esperaAtaque<=0)iniciarGolpe(player);
 }
@@ -441,7 +736,7 @@ function ferirInimigo(e,quantidade,kb=0,pisao=false,etapa=0){
  e.hp=Math.max(0,e.hp-quantidade);e.imune=.22;e.reacao=.32;e.retornoEspada={de:anguloEspada(e),t:0};
  if(!e.chefe||quantidade>1){e.ataque=null;e.esperaAtaque=.55;}
  e.vx=kb*(e.chefe?.35:1);parada=e.hp===0?.09:.05;
- if(e.hp===0){som('somMorteInimigo');soltarCura(e);e.ativo=false;desmontar(e);e.el.remove();pontos+=e.chefe?200:30;placar();aviso(e.chefe?'Chefe derrotado! +200 pontos':'Ninja derrotado! +30 pontos');}
+ if(e.hp===0){som('somMorteInimigo');soltarCura(e);soltarPoder(e);e.ativo=false;desmontar(e);e.el.remove();pontos+=e.chefe?200:30;placar();aviso(e.chefe?'Chefe derrotado! +200 pontos':'Ninja derrotado! +30 pontos');}
 }
 function desmontar(n){
  const partes=[['cabeca',12,0,23,22],['tronco',19,22,7,18],['membro',13,25,5,22],['membro',29,25,5,22],['membro',16,38,6,22],['membro',26,38,6,22],['lamina',34,26,4,32],['faixa',12,6,25,5]];
@@ -484,6 +779,7 @@ function atualizarGolpe(n,dt){
  }
 }
 function moverInimigo(e,dt){
+ if(e.gelado>0)dt*=e.chefe?.65:.4;
  const dx=(player.x+player.w/2)-(e.x+e.w/2);
  const dy=(player.y+player.h/2)-(e.y+e.h/2);
  const distancia=Math.hypot(dx,dy);
@@ -542,6 +838,7 @@ function atualizarPeixes(dt){
  }
 }
 function atualizar(dt){
+ animarArvores(dt);
  tempoAnimacao+=dt;atualizarFragmentos(dt);atualizarPeixes(dt);if(estado!=='jogando')return;
  tempoAviso=Math.max(0,tempoAviso-dt);if(!tempoAviso)$('aviso').textContent='';
  player.imune=Math.max(0,player.imune-dt);bufferPulo=Math.max(0,bufferPulo-dt);
@@ -582,11 +879,13 @@ function atualizar(dt){
   player.x=ultimoSeguro;player.y=CHAO-player.h;player.vx=0;player.vy=0;player.noChao=true;player.mortal=false;player.ataque=null;player.comboFila=0;limparControles();aviso('Caiu na água! Voltou à margem segura.');
  }
  if(player.noChao){player.mortal=false;player.tempoMortal=0;}
- atualizarGolpe(player,dt);
+ atualizarGolpe(player,dt);atualizarPoderes(dt);
  for(const i of itens){if(!i.ativo||!sobrepoe(player,i))continue;
   if(i.tipo==='vida'&&saude===100)continue;
+  if(i.tipo==='poder'&&cargas[i.poder]>=MAX_CARGAS)continue;
   i.ativo=false;i.el.remove();
-  if(i.tipo==='moeda'){moedas++;pontos+=10;som('somMoeda');aviso('+10 pontos');}
+  if(i.tipo==='poder'){cargas[i.poder]=Math.min(MAX_CARGAS,cargas[i.poder]+2);painelPoderes();som('somMoeda');aviso(`${PODERES[i.poder].nome}: +2 cargas!`);}
+  else if(i.tipo==='moeda'){moedas++;pontos+=10;som('somMoeda');aviso('+10 pontos');}
   else if(i.tipo==='ouro'){ouro++;pontos+=50;som('somMoeda');aviso('Ouro! +50 pontos');}
   else{saude=Math.min(100,saude+25);som('somCoracao');aviso('+25 de saúde');}placar();
  }
@@ -607,8 +906,9 @@ function atualizar(dt){
 }
 function desenhar(){if(!player)return;
  camera=Math.max(0,Math.min(LARGURA-$('tela').clientWidth,player.x-$('tela').clientWidth*.4));
- $('mundo').style.transform=`translateX(${-camera}px)`;$('paisagem').style.backgroundPosition=`${-camera*.22}px 0`;
- player.el.style.transform=`translate(${player.x}px,${player.y}px)`;player.el.querySelector('.ninja-corpo').style.scale=String(player.mortal?player.faceMortal:player.ataque?player.ataque.face:direcao)+' 1';
+ $('arvoresVivas').style.transform=`translateX(${-((camera*.36)%1200)}px)`;
+ $('detalhesCenario').style.backgroundPosition=`${-camera*.48}px 0`;$('mundo').style.transform=`translateX(${-camera}px)`;$('paisagem').style.backgroundPosition=`${-camera*.22}px 0`;
+ player.el.style.transform=`translate(${player.x}px,${player.y}px)`;player.el.querySelector('.ninja-corpo').style.scale=String(player.conjuracao?player.conjuracao.face:player.mortal?player.faceMortal:player.ataque?player.ataque.face:direcao)+' 1';
  player.el.classList.toggle('dano',player.reacao>0);
  animarNinja();
  for(const e of itens)if(e.ativo)e.el.style.transform=`translate(${e.x}px,${e.y}px)`;
@@ -644,6 +944,8 @@ const pressionadas=new Set();
 document.addEventListener('keydown',e=>{
  if(['KeyP','Escape'].includes(e.code)){if(e.repeat)return;if(estado==='pausa')jogar();else pausar();return;}
  if(estado!=='jogando')return;
+ const tipoPoder={Digit1:'fogo',Digit2:'gelo',Digit3:'magia',Digit4:'forca'}[e.code];
+ if(tipoPoder){e.preventDefault();if(!e.repeat)usarPoder(tipoPoder);return;}
  if(['KeyJ','KeyX'].includes(e.code)){e.preventDefault();if(!e.repeat)pedirAtaque();}
  if(mapa[e.code]){e.preventDefault();pressionadas.add(e.code);teclas.add(mapa[e.code]);}
  if(['Space','ArrowUp','KeyW'].includes(e.code)){e.preventDefault();if(!e.repeat)pedirPulo();}
