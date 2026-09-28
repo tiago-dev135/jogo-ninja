@@ -303,6 +303,60 @@ button{border:0;border-radius:12px;background:#f4cc52;color:#17202e;padding:14px
 .boneco .madeira-bracos{left:-6px;top:28px;width:56px;height:8px;background:linear-gradient(#cba16b,#76502f);border:2px solid #54351e;border-radius:3px;z-index:-1}
 .boneco .madeira-base{left:18px;top:45px;width:10px;height:15px;background:#765333;border:1px solid #3c291c}
 .boneco .madeira-base::after{content:'';position:absolute;bottom:-1px;left:-12px;width:33px;height:5px;border-radius:50%;background:#503621}
+
+.fenix-azul{position:absolute;left:0;top:0;width:160px;height:120px;pointer-events:none;z-index:7;filter:drop-shadow(0 0 7px #55dfff) drop-shadow(0 0 16px #176bff);will-change:transform}
+.fenix-azul svg{width:100%;height:100%;overflow:visible}
+#player[data-fenix="sim"] .ninja-espada{box-shadow:0 0 8px #b5ffff,0 0 20px #128bff!important;background:linear-gradient(90deg,#1684ff,#e6ffff,#55d5ff)!important}
+#player[data-fenix="sim"] .ninja-arco{background:linear-gradient(90deg,transparent,#148cff,#e5ffff)!important;box-shadow:0 0 14px #37bfff}
+
+.espinho-gelo{position:absolute;left:0;top:0;z-index:6;pointer-events:none;transform-origin:50% 100%;background:linear-gradient(105deg,#1e89cf 0,#70d5ff 40%,#edffff 46%,#9ef0ff 53%,#318ecc 100%);clip-path:polygon(50% 0,74% 31%,80% 65%,100% 85%,88% 100%,12% 100%,0 82%,22% 57%,28% 28%);will-change:transform,opacity}
+.espinho-gelo::after{content:'';position:absolute;top:20%;bottom:0;left:47%;width:2px;background:#e8ffff;transform:rotate(5deg);opacity:.8}
+#player[data-conjurando="sim"][data-gelo="sim"] .ninja-espada{opacity:1;filter:drop-shadow(0 0 5px rgb(120 235 255 / var(--aura-gelo,0))) drop-shadow(0 0 13px rgb(30 140 255 / var(--aura-gelo,0)))}
+#player[data-gelo="sim"] .braco-frente>i::after{opacity:0!important}
+#player[data-gelo="sim"] .ninja-arco{border-color:#90edff;box-shadow:4px 0 12px #2199ff}
+
+.cinema-fundo{position:absolute;top:-120px;height:660px;background:#000;opacity:0;z-index:3;pointer-events:none}
+/* O ninja e os efeitos ficam sobre o preto; os controles não recebem zoom. */
+#player{z-index:4}.espinho-gelo,.fenix-azul,.efeito-poder,.projetil-poder,.particula-poder{z-index:6}
+
+.explosao-azul{position:absolute;width:260px;height:260px;margin:-130px;pointer-events:none;z-index:7;will-change:transform,opacity}
+.explosao-azul i{position:absolute;display:block;border-radius:50%}
+.anel-azul{inset:12%;border:5px solid #9cefff;box-shadow:0 0 16px #40cfff,inset 0 0 22px #1b8eff}
+.nucleo-azul{inset:23%;background:radial-gradient(circle,#f3ffff 0,#b3f5ff 12%,#1ba6ff99 35%,#1649e433 60%,transparent 74%);box-shadow:0 0 35px #1168ff88}
+.onda-azul{inset:0;border:2px solid #4fcfff88;background:repeating-conic-gradient(from 15deg,transparent 0deg 19deg,#3fbeff55 20deg 23deg,transparent 24deg 40deg);mask-image:radial-gradient(circle,transparent 25%,#000 45%,transparent 71%)}
+.chamas-azuis{position:absolute;inset:-12px -7px -2px;pointer-events:none;z-index:9;filter:drop-shadow(0 0 5px #178dff);mix-blend-mode:screen}
+.chamas-azuis::before{content:'';position:absolute;inset:25% 7% 0;border-radius:40%;background:radial-gradient(ellipse at 50% 85%,#b0faff80,#187cff44 48%,transparent 75%)}
+.lingua-azul{position:absolute;bottom:0;width:29%;border-radius:65% 10% 55% 35%;transform-origin:50% 100%;background:radial-gradient(ellipse at 45% 90%,#ecffff 0,#87ecff 18%,#16a7ffb8 38%,#174de680 62%,transparent 76%)}
+.lingua-azul::after{content:'';position:absolute;left:25%;bottom:0;width:45%;height:62%;border-radius:75% 15% 45% 35%;background:linear-gradient(0deg,#fffbd9,#b1ffffa0,transparent)}
+
+.tornado-gigante{position:absolute;left:0;top:0;width:180px;height:280px;z-index:7;pointer-events:none;transform-origin:50% 100%;filter:drop-shadow(0 0 10px #9be6ee66);will-change:transform,opacity}
+.tornado-gigante::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,#a8e7f22b,#efffff70,#76aeb844,transparent);clip-path:polygon(0 0,100% 0,65% 85%,55% 100%,42% 100%,30% 83%);border-radius:40%}
+.tornado-anel{position:absolute;height:32px;border-radius:50%;border-top:4px solid #e9ffffd9;border-bottom:3px solid #66a7c58c;box-shadow:0 -3px 8px #b3e6ed66,inset 0 5px 8px #e8ffff33;background:linear-gradient(0deg,transparent,#c5f9ff12);transform-origin:50% 50%}
+.tornado-poeira{position:absolute;bottom:-8px;left:38px;width:104px;height:25px;border-radius:50%;background:radial-gradient(ellipse,#d6c09b66,transparent 70%);border-top:2px solid #e7eddb80}
+#player[data-conjurando="sim"][data-tornado="sim"] .ninja-espada{opacity:1;filter:drop-shadow(0 0 5px #c5faff)}
+#player[data-tornado="sim"] .braco-frente>i::after{opacity:0!important}
+#player[data-tornado="sim"] .ninja-arco{width:66px;height:78px;top:-24px;border-color:#efffff;box-shadow:4px 0 10px #a1dfff}
+
+/* Volumes sobrepostos, reflexos e faixas de vento com profundidade. */
+.tornado-gigante{width:220px;height:310px;isolation:isolate;filter:drop-shadow(0 0 9px #9bdfe333)}
+.tornado-gigante::before{display:none}
+.tornado-miolo,.tornado-reflexo{position:absolute;inset:0;clip-path:polygon(0 0,100% 0,94% 19%,76% 46%,63% 78%,54% 100%,45% 100%,34% 79%,21% 48%,5% 20%);border-radius:45% 45% 0 0;z-index:1}
+.tornado-miolo{background:linear-gradient(90deg,#293e5033,#6e939ca0 23%,#c7e0dfbd 44%,#7296a5ab 66%,#1c344f55),repeating-linear-gradient(174deg,transparent 0 13px,#e3ffff26 14px 19px,transparent 20px 32px);box-shadow:inset 25px 0 26px #14223755}
+.tornado-reflexo{background:linear-gradient(105deg,transparent 20%,#efffff44 39%,transparent 49%,#071c3e30 70%,transparent 85%);z-index:2}
+.tornado-anel{height:30px;z-index:3;border-top:3px solid #e3f4f4aa;border-bottom:2px solid #45677699;border-left:1px solid #a7c8d422;border-right:1px solid #a7c8d422;background:linear-gradient(180deg,#e8ffff16,transparent 50%,#33496316);box-shadow:0 -2px 5px #ccf0f226,inset 0 3px 5px #ffffff1f}
+.tornado-anel:nth-child(3n){border-top-width:5px;border-top-color:#d9f3f580;height:36px}
+.tornado-detrito{position:absolute;left:0;top:0;width:5px;height:3px;border-radius:1px;background:#d0c4a2;box-shadow:0 0 2px #f6efd055}
+.tornado-poeira{left:32px;width:156px;height:31px;bottom:-10px;background:radial-gradient(ellipse,#d2be9c66,#8c8d7d22 50%,transparent 72%);border-top:2px solid #c7d5cd55}
+.espinho-gelo{clip-path:none;background:none;overflow:visible;filter:drop-shadow(2px 1px 2px #0a477b66) drop-shadow(0 0 4px #7deeff33);perspective:260px}
+.espinho-gelo::before{content:'';position:absolute;left:-14px;right:-14px;bottom:-4px;height:10px;border-radius:50%;background:radial-gradient(ellipse,#beffff80,#4185b844 40%,transparent 72%)}
+.espinho-gelo::after{left:49%;top:0;bottom:3%;height:auto;width:1px;background:linear-gradient(#fff,#bafaff77);transform:rotate(0);opacity:.9}
+.cristal-face,.cristal-nucleo,.cristal-lasca,.cristal-brilho{position:absolute;inset:0;display:block}
+.cristal-face.sombra{clip-path:polygon(50% 0,85% 39%,100% 89%,72% 100%,50% 88%);background:linear-gradient(115deg,#1a71b8,#438dd799 35%,#105098 74%,#88d8ed)}
+.cristal-face.luz{clip-path:polygon(50% 0,50% 88%,72% 100%,15% 96%,0 73%,22% 28%);background:linear-gradient(125deg,#e9ffff 0,#9cebf5a8 32%,#42a4dcd9 65%,#d7ffffc9);box-shadow:inset 7px 0 8px #fff6}
+.cristal-nucleo{inset:20% 24% 9% 30%;background:linear-gradient(150deg,#faffffb3,#a3f3fa22,#1569b566);clip-path:polygon(47% 0,100% 74%,52% 100%,0 68%)}
+.cristal-lasca{top:52%;bottom:0;width:17px;background:linear-gradient(110deg,#dfffff,#7bcbe7aa 45%,#266ea8);clip-path:polygon(40% 0,86% 47%,100% 95%,24% 100%,0 60%);transform-origin:50% 100%}
+.cristal-lasca.esquerda{left:-8px;transform:rotate(-22deg)}.cristal-lasca.direita{left:22px;top:40%;transform:rotate(20deg)}
+.cristal-brilho{background:linear-gradient(118deg,transparent 30%,#fff9 34%,transparent 38%,transparent 60%,#c6ffff66 63%,transparent 66%);clip-path:polygon(50% 0,85% 39%,100% 89%,72% 100%,15% 96%,0 73%,22% 28%);opacity:var(--reflexo,.6)}
 </style>
 </head>
 <body>
@@ -314,7 +368,7 @@ button{border:0;border-radius:12px;background:#f4cc52;color:#17202e;padding:14px
 <div id="paisagem" aria-hidden="true"></div><div id="montanhas" aria-hidden="true"></div>
 <div id="detalhesCenario" aria-hidden="true"></div><div id="cenarioAnimado" aria-hidden="true"><div id="arvoresVivas"></div><div id="luzesAmbiente"></div></div><div id="atmosfera" aria-hidden="true"></div><div id="mundo"></div>
 <div id="carregamento" role="status" aria-live="polite"><h2>Preparando a aventura</h2><progress id="cargaBarra" max="100" value="0" aria-label="Carregamento"></progress><p id="cargaTexto">Carregando imagens e sons…</p></div>
-<div id="controleTela"><div id="analogico" role="group" aria-label="Analógico: arraste para os lados para correr, para cima para pular e para baixo para agachar"><span class="marcas-analogico" aria-hidden="true">✥</span><span id="alavanca" aria-hidden="true"></span></div><div class="poderes" role="group" aria-label="Ataque e poderes especiais"><div id="ataquesOrbita"><button id="super-giro" aria-label="Tornado de lâminas" title="Tornado — Q">✺<b>✓</b></button><button id="super-onda" aria-label="Onda cortante" title="Onda — E">➶<b>✓</b></button><button id="super-terra" aria-label="Impacto sísmico" title="Impacto — R">◆<b>✓</b></button><button id="atacar" aria-label="Atacar">⚔</button></div><button id="poder-fogo" type="button" title="Fogo — tecla 1" aria-label="Fogo"><span aria-hidden="true">🔥</span><b>0</b></button><button id="poder-gelo" type="button" title="Gelo — tecla 2" aria-label="Gelo"><span aria-hidden="true">❄</span><b>0</b></button><button id="poder-magia" type="button" title="Magia — tecla 3" aria-label="Magia"><span aria-hidden="true">✦</span><b>0</b></button><button id="poder-forca" type="button" title="Golpe poderoso — tecla 4" aria-label="Golpe poderoso"><span aria-hidden="true">⚡</span><b>0</b></button></div>
+<div id="controleTela"><div id="analogico" role="group" aria-label="Analógico: arraste para os lados para correr, para cima para pular e para baixo para agachar"><span class="marcas-analogico" aria-hidden="true">✥</span><span id="alavanca" aria-hidden="true"></span></div><div class="poderes" role="group" aria-label="Ataque e poderes especiais"><div id="ataquesOrbita"><button id="super-giro" aria-label="Espinhos glaciais" title="Espinhos glaciais — Q">❄<b>✓</b></button><button id="super-onda" aria-label="Fênix azul" title="Fênix azul — E">➶<b>✓</b></button><button id="super-terra" aria-label="Tornado gigante" title="Tornado gigante — R">🌪<b>✓</b></button><button id="atacar" aria-label="Atacar">⚔</button></div><button id="poder-fogo" type="button" title="Fogo — tecla 1" aria-label="Fogo"><span aria-hidden="true">🔥</span><b>0</b></button><button id="poder-gelo" type="button" title="Gelo — tecla 2" aria-label="Gelo"><span aria-hidden="true">❄</span><b>0</b></button><button id="poder-magia" type="button" title="Magia — tecla 3" aria-label="Magia"><span aria-hidden="true">✦</span><b>0</b></button><button id="poder-forca" type="button" title="Golpe poderoso — tecla 4" aria-label="Golpe poderoso"><span aria-hidden="true">⚡</span><b>0</b></button></div>
 </div>
 <section id="menuJogo" class="oculto" aria-label="Menu do jogo"><div class="menu-topo"><h2><span class="selo-ninja">刃</span> NINJA <small>CAMINHO DA LÂMINA</small></h2><span id="saldoLoja"></span></div><nav id="menuAbas" aria-label="Seções"><button data-aba="inicio">Jogar</button><button data-aba="loja">Loja</button><button data-aba="visual">Personagem</button><button data-aba="capitulos">Capítulos</button><button data-aba="dojo">Dojo</button></nav><div id="menuConteudo"></div><p id="menuAviso" role="status"></p></section><div id="painel"><h2 id="titulo">Explore doze mundos</h2><p id="mensagem"></p><button id="acao" aria-label="Iniciar aventura" disabled>▶</button></div>
 </div>
@@ -327,6 +381,9 @@ button{border:0;border-radius:12px;background:#f4cc52;color:#17202e;padding:14px
 <audio id="musica" src="musicaJogo.mp3" loop preload="auto"></audio><audio id="somPulo" src="audiopulo.mp3" preload="auto"></audio><audio id="somDano" src="audiodano.mp3" preload="auto"></audio>
 <audio id="somMoeda" src="coletarmoeda.mp3" preload="auto"></audio>
 <audio id="somMorteInimigo" src="morteinimigo.mp3" preload="auto"></audio>
+<audio id="somFenix" src="passarofogoazul.mp3" preload="auto"></audio>
+<audio id="somGeloEspecial" src="espadadegelo.mp3" preload="auto"></audio>
+<audio id="somTornado" src="espadatornado.mp3" preload="auto"></audio>
 <audio id="somEspada" src="golpeespada.mp3" preload="auto"></audio>
 <audio id="somCoracao" src="coletarcoracao.mp3" preload="auto"></audio>
 <script>
@@ -458,7 +515,7 @@ function animarNinja(n=player){
  estilo.setProperty('--tronco-giro',(recolher*35)+'deg');
  estilo.setProperty('--tronco-escala',1-recolher*.3);
  const golpe=n.ataque;
- n.el.dataset.atacando=golpe?'sim':'nao';
+ n.el.dataset.atacando=golpe?'sim':'nao';n.el.dataset.fenix=golpe?.passaro?'sim':'nao';
  n.el.dataset.etapa=golpe?golpe.etapa:'0';
  const progresso=golpe?Math.min(1,golpe.t/golpe.duracao):0;
  n.el.dataset.aviso=(n!==player&&golpe&&progresso<.38)?'sim':'nao';
@@ -523,7 +580,7 @@ function animarNinja(n=player){
  }
 
  if(n===player){
-  n.el.dataset.conjurando=n.conjuracao?'sim':'nao';
+  n.el.dataset.conjurando=n.conjuracao?'sim':'nao';n.el.dataset.tornado=n.conjuracao?.tipo==='tornado'?'sim':'nao';n.el.dataset.gelo=n.conjuracao?.tipo==='espinhos'?'sim':'nao';estilo.setProperty('--aura-gelo','0');
   if(n.conjuracao){
    const t=n.conjuracao.t,preparo=suave(t/.18),volta=suave((t-.36)/.24),peso=1-volta;
    const misturar=(chave,alvo)=>valores[chave]+=(alvo-valores[chave])*peso;
@@ -533,6 +590,31 @@ function animarNinja(n=player){
    estilo.setProperty('--cotovelo-livre',(-90+75*preparo)+'deg');
    estilo.setProperty('--arco-opacidade','0');
    estilo.setProperty('--brilho-magia',String(peso));
+
+   if(n.conjuracao.tipo==='tornado'){
+    const atras=suave(t/.23),erguer=suave((t-.23)/.27),voltar=suave((t-.72)/.33);
+    const ombro=GUARDA[0]+(85-GUARDA[0])*atras-250*erguer;
+    valores['--braco-a']=ombro+(GUARDA[0]-ombro)*voltar;
+    valores['--braco-b']=-55-75*erguer*(1-voltar);
+    valores['--inclinacao']=(10*atras-18*erguer)*(1-voltar)+GUARDA[3]*voltar;
+    estilo.setProperty('--cotovelo',(-30+15*erguer+(GUARDA[1]+15)*voltar)+'deg');
+    estilo.setProperty('--espada-giro',(25-40*erguer)+'deg');
+    estilo.setProperty('--cotovelo-livre','-50deg');
+    estilo.setProperty('--arco-opacidade',t>.23&&t<.55?'.9':'0');
+   }
+   if(n.conjuracao.tipo==='espinhos'){
+    const preparar=suave(t/.3),cortar=suave((t-.3)/.16),retornar=suave((t-.56)/.34);
+    const a=-38+(-165+38)*preparar+(-20+165)*cortar;
+    valores['--braco-a']=a+(GUARDA[0]-a)*retornar;
+    valores['--braco-b']=valores['--braco-a']+8;
+    valores['--inclinacao']=(-8*preparar+29*cortar)*(1-retornar)+GUARDA[3]*retornar;
+    estilo.setProperty('--cotovelo',((-45+30*cortar)*(1-retornar)+GUARDA[1]*retornar)+'deg');
+    estilo.setProperty('--cotovelo-livre',(-48+28*cortar)+'deg');
+    estilo.setProperty('--espada-giro',(-25+35*cortar)+'deg');
+    estilo.setProperty('--aura-gelo',String(suave(t/.15)*(1-suave((t-.46)/.27))));
+    estilo.setProperty('--arco-opacidade',t>.3&&t<.48?'.9':'0');
+   }
+
   }
  }
  for(const [nome,v] of Object.entries(valores))estilo.setProperty(nome,v+'deg');
@@ -547,10 +629,24 @@ const PODERES={
  forca:{nome:'Golpe poderoso',icone:'⚡',cor:'#ffe178',dano:5}
 };
 const cargas={fogo:0,gelo:0,magia:0,forca:0},MAX_CARGAS=6;
+
+let cinema={t:0,duracao:1.2,ativo:false,forca:0};
+function iniciarCinema(){cinema.t=0;cinema.ativo=true;cinema.forca=0;}
+function encerrarCinema(){cinema.ativo=false;cinema.forca=0;const el=$('mundo').querySelector('.cinema-fundo');if(el)el.style.opacity='0';}
+function atualizarCinema(dt){
+ if(!cinema.ativo)return;cinema.t+=dt;
+ cinema.forca=suave(cinema.t/.15)*(1-suave((cinema.t-.78)/.42));
+ if(cinema.t>=cinema.duracao)encerrarCinema();
+}
+
+let espinhosGelo=[];
+let tornados=[];
+let explosoesAzuis=[];
+let avesAzuis=[];
 let projeteis=[],efeitosPoder=[],recargaPoder=0;
 
 let modoDojo=false,estadoAntesMenu='inicio',golpesTreino=0,danoTreino=0;
-const SUPER={giro:{nome:'Tornado de lâminas',tempo:12,dano:5,raio:120,cor:'magia'},onda:{nome:'Onda cortante',tempo:18,dano:7,raio:250,cor:'gelo'},terra:{nome:'Impacto sísmico',tempo:25,dano:10,raio:165,cor:'forca'}};
+const SUPER={giro:{nome:'Espinhos glaciais',tempo:12,dano:5,raio:350,cor:'gelo'},onda:{nome:'Fênix azul',tempo:18,dano:7,raio:250,cor:'gelo'},terra:{nome:'Tornado gigante',tempo:25,dano:10,raio:165,cor:'forca'}};
 const recargasSuper={giro:0,onda:0,terra:0};
 const PRECO={fogo:12,gelo:10,magia:16,forca:20};
 let perfil={moedas:0,capitulo:0,faixa:0,roupa:0};
@@ -649,17 +745,153 @@ function atualizarSupers(dt){for(const t of Object.keys(SUPER)){
  b.dataset.carregando=recargasSuper[t]>0?'sim':'nao';b.querySelector('b').textContent=recargasSuper[t]>0?Math.ceil(recargasSuper[t]):'✓';
  b.setAttribute('aria-label',SUPER[t].nome+(recargasSuper[t]>0?': '+Math.ceil(recargasSuper[t])+' segundos':' pronto'));
 }}
-function usarSuper(t){
- if(estado!=='jogando'||!SUPER[t]||recargasSuper[t]>0||player.conjuracao)return;
- const poder=SUPER[t],face=direcao;recargasSuper[t]=poder.tempo;atualizarSupers(0);
- iniciarGolpe(player,t==='terra'?2:t==='onda'?4:1);player.comboFila=0;
- const area={x:t==='onda'?(face>0?player.x+player.w/2:player.x+player.w/2-poder.raio):player.x+player.w/2-poder.raio,y:player.y-24,w:t==='onda'?poder.raio:poder.raio*2,h:player.h+48};
- efeitoPoder(poder.cor,area.x,area.y,area.w,area.h);
- for(const e of inimigos){if(!e.ativo||!sobrepoe(area,e))continue;
-  const bloqueio=plataformas.some(p=>p.y<e.y+e.h&&p.y+p.h>e.y&&p.x<Math.max(player.x,e.x)&&p.x+p.w>Math.min(player.x+player.w,e.x+e.w));
-  if(!bloqueio)ferirInimigo(e,poder.dano,Math.sign(e.x-player.x||face)*650,false,4);
+
+function lancarAveAzul(face){
+ som('somFenix');
+ const el=document.createElement('div');el.className='fenix-azul';el.setAttribute('aria-hidden','true');
+ el.innerHTML=`<svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg"><g fill="#1488ff" stroke="#68dbff" stroke-width="1.4"><path d="M85 66Q41 86 3 106L31 74 0 85 30 57 4 45Q53 55 85 52Z" fill="#1267f5"/><g class="asa-alta"><path d="M84 60Q55 35 39 3L69 19 62 1 91 22 90 8Q117 35 115 58Z"/></g><g class="asa-baixa"><path d="M80 64Q64 94 39 115L75 106 73 119 102 99 106 112Q128 90 115 65Z"/></g><path d="M47 64Q73 42 110 50L119 34 133 29 130 40 145 47 159 53 142 57Q133 70 107 72L75 70Z" fill="#57cfff"/><path d="M47 65Q92 54 129 53L145 53Q121 63 96 65Z" fill="#e6ffff"/><path d="M69 29L97 51M69 96L99 73" fill="none" stroke="#c4f9ff" stroke-width="3"/><circle cx="135" cy="47" r="2.5" fill="#fff" stroke="none"/></g></svg>`;
+ $('mundo').appendChild(el);
+ const x=player.x+player.w/2-50,y=player.y+player.h*.5-26;
+ avesAzuis.push({el,x,y,w:100,h:52,face,vx:face*470,t:1.8,idade:0,trilha:0,alvos:new Set(),asaAlta:el.querySelector('.asa-alta'),asaBaixa:el.querySelector('.asa-baixa')});
+ faiscas('gelo',player.x+player.w/2,player.y+player.h*.5,20);
+}
+
+function incendiarAzul(e){
+ if(!e.ativo)return;
+ e.fogoAzul={t:4,tick:.75,idade:0,faisca:0};
+ if(e.chamasAzuis)return;
+ const el=document.createElement('div');el.className='chamas-azuis';el.setAttribute('aria-hidden','true');
+ const linguas=[];
+ for(let i=0;i<5;i++){const chama=document.createElement('i');chama.className='lingua-azul';chama.style.left=(i*19)+'%';chama.style.height=(55+(i%3)*18)+'%';el.appendChild(chama);linguas.push(chama);}
+ e.el.appendChild(el);e.chamasAzuis={el,linguas};
+}
+function explodirFenix(ave){
+ if(ave.explodiu)return;ave.explodiu=true;
+ const limite=modoDojo?larguraDojo():LARGURA;
+ const x=Math.max(18,Math.min(limite-18,ave.x+ave.w/2)),y=ave.y+ave.h/2,raio=135;
+ const el=document.createElement('div');el.className='explosao-azul';el.setAttribute('aria-hidden','true');
+ el.innerHTML='<i class="anel-azul"></i><i class="nucleo-azul"></i><i class="onda-azul"></i>';
+ el.style.left=x+'px';el.style.top=y+'px';$('mundo').appendChild(el);explosoesAzuis.push({el,t:0});
+ faiscas('gelo',x,y,32);
+ for(const e of inimigos){
+  if(!e.ativo)continue;
+  const px=Math.max(e.x,Math.min(x,e.x+e.w)),py=Math.max(e.y,Math.min(y,e.y+e.h));
+  if(Math.hypot(x-px,y-py)>raio)continue;
+  // Paredes sólidas interrompem a explosão.
+  const bloqueado=plataformas.some(p=>{for(let i=1;i<16;i++){const u=i/16,rx=x+(px-x)*u,ry=y+(py-y)*u;if(rx>p.x&&rx<p.x+p.w&&ry>p.y&&ry<p.y+p.h)return true;}return false;});
+  if(bloqueado)continue;
+  ferirInimigo(e,4,Math.sign(e.x+e.w/2-x||ave.face)*420,false,4);
+  incendiarAzul(e);
  }
- aviso(poder.nome+'!');
+}
+function atualizarFogoAzul(dt){
+ for(const f of explosoesAzuis){f.t+=dt;const u=Math.min(1,f.t/.65);f.el.style.transform=`scale(${.18+1.1*suave(Math.min(1,u*1.8))}) rotate(${u*16}deg)`;f.el.style.opacity=String(1-suave(u));if(f.t>=.65)f.el.remove();}
+ explosoesAzuis=explosoesAzuis.filter(f=>f.t<.65);
+ for(const e of inimigos){
+  if(!e.fogoAzul)continue;
+  const f=e.fogoAzul;
+  if(!e.ativo){e.chamasAzuis?.el.remove();e.chamasAzuis=null;e.fogoAzul=null;continue;}
+  f.t=Math.max(0,f.t-dt);f.idade+=dt;f.tick-=dt;f.faisca+=dt;
+  if(f.tick<=0&&f.t>0&&e.imune<=0){f.tick=.75;ferirInimigo(e,1,0,false,4);}
+  if(e.chamasAzuis){
+   e.chamasAzuis.el.style.opacity=String(Math.min(1,f.t/.55)*Math.min(1,f.idade/.15));
+   e.chamasAzuis.linguas.forEach((el,i)=>{const onda=Math.sin(f.idade*12+i*1.8),reduzir=poucoMovimento?.25:1;el.style.transform=`translateY(${-3-4*onda*reduzir}px) scale(${.85+.12*onda*reduzir},${.95+.2*onda*reduzir}) rotate(${onda*9*reduzir}deg)`;});
+  }
+  if(f.faisca>.14&&f.t>.5){f.faisca=0;faiscas('gelo',e.x+e.w/2,e.y+e.h*.3,1);}
+  if(f.t<=0||!e.ativo){e.chamasAzuis?.el.remove();e.chamasAzuis=null;e.fogoAzul=null;}
+ }
+}
+
+function atualizarAvesAzuis(dt){
+ for(const ave of avesAzuis){
+  ave.idade+=dt;ave.t-=dt;ave.x+=ave.vx*dt;ave.trilha+=dt;
+  const limite=modoDojo?larguraDojo()-17:LARGURA;
+  if(ave.x+ave.w<0||ave.x>limite||plataformas.some(p=>sobrepoe(ave,p)))ave.t=0;
+  if(ave.t>0)for(const e of inimigos){
+   if(!e.ativo||ave.alvos.has(e)||e.imune>0||!sobrepoe(ave,e))continue;
+   ferirInimigo(e,SUPER.onda.dano,ave.face*560,false,4);ave.alvos.add(e);
+   efeitoPoder('gelo',e.x-10,e.y-8,e.w+20,e.h+16);
+  }
+  if(ave.trilha>.045){ave.trilha=0;faiscas('gelo',ave.x+ave.w/2-ave.face*38,ave.y+26,3);}
+  const bater=Math.sin(ave.idade*18)*(poucoMovimento?3:16);
+  ave.asaAlta.setAttribute('transform',`rotate(${bater} 99 59)`);ave.asaBaixa.setAttribute('transform',`rotate(${-bater} 99 65)`);
+  ave.el.style.transform=`translate(${ave.x-30}px,${ave.y-34}px) scaleX(${ave.face})`;
+  ave.el.style.opacity=String(Math.min(1,ave.t*5));
+  if(ave.t<=0){explodirFenix(ave);ave.el.remove();}
+ }
+ avesAzuis=avesAzuis.filter(a=>a.t>0);
+}
+
+
+function criarTornado(face){
+ som('somTornado');
+ const el=document.createElement('div');el.className='tornado-gigante';el.setAttribute('aria-hidden','true');
+ el.innerHTML='<div class="tornado-miolo"></div><div class="tornado-reflexo"></div>';
+ const bandas=[],detritos=[];
+ for(let i=0;i<14;i++){
+  const anel=document.createElement('i');anel.className='tornado-anel';
+  const largura=42+i*13;anel.style.width=largura+'px';anel.style.left=(220-largura)/2+'px';anel.style.bottom=(i*21)+'px';
+  el.appendChild(anel);bandas.push(anel);
+ }
+ for(let i=0;i<12;i++){const d=document.createElement('i');d.className='tornado-detrito';el.appendChild(d);detritos.push(d);}
+ const poeira=document.createElement('span');poeira.className='tornado-poeira';el.appendChild(poeira);$('mundo').appendChild(el);
+ const limite=modoDojo?larguraDojo():LARGURA;
+ const x=Math.max(0,Math.min(limite-220,player.x+player.w/2+face*85-110));
+ tornados.push({el,bandas,detritos,x,inicioX:x,y:player.y+player.h-310,w:220,h:310,t:0,duracao:3.4,face,alvos:new Set(),trilha:0});
+}
+function atualizarTornados(dt){
+ for(const v of tornados){
+  v.t+=dt;v.trilha+=dt;
+  const limite=modoDojo?larguraDojo():LARGURA;
+  const novoX=Math.max(0,Math.min(limite-v.w,v.x+v.face*200*dt));
+  if(!plataformas.some(p=>sobrepoe({x:novoX+85,y:v.y+230,w:50,h:80},p)))v.x=novoX;
+  const entrada=suave(v.t/.25),saida=1-suave((v.t-2.8)/.6);
+  v.el.style.transform=`translate(${v.x}px,${v.y}px) scale(${.6+.4*entrada},${entrada*(.7+.3*saida)})`;
+  v.el.style.opacity=String(entrada*saida);
+  for(let i=0;i<v.bandas.length;i++){
+   const fase=v.t*(poucoMovimento?3:12)-i*.55,onda=Math.sin(fase);
+   v.bandas[i].style.transform=`translateX(${onda*(2+i*.35)}px) rotate(${onda*6}deg) scaleX(${.91+.09*Math.cos(fase)})`;
+   v.bandas[i].style.opacity=String(.52+.35*(.5+.5*Math.sin(fase)));
+  }
+  v.detritos.forEach((d,i)=>{
+   const u=(v.t*.55+i/12)%1,a=v.t*(poucoMovimento?2:8)+i*2.4,r=20+u*87,prof=Math.sin(a);
+   d.style.transform=`translate(${110+Math.cos(a)*r}px,${300-u*290+prof*9}px) rotate(${a*80}deg) scale(${.6+(prof+1)*.35})`;
+   d.style.opacity=String((1-u)*(.4+.3*(prof+1)));d.style.zIndex=prof>0?'4':'0';
+  });
+  if(v.t>.2&&v.t<2.8)for(const e of inimigos){
+   if(!e.ativo||v.alvos.has(e)||e.imune>0||!sobrepoe({x:v.x+20,y:v.y,w:180,h:v.h},e))continue;
+   const parede=plataformas.some(p=>p.x>Math.min(v.x+110,e.x)&&p.x+p.w<Math.max(v.x+110,e.x+e.w)&&p.y<e.y+e.h&&p.y+p.h>e.y);
+   if(parede)continue;
+   ferirInimigo(e,SUPER.terra.dano,v.face*520,false,4);v.alvos.add(e);
+   if(e.ativo&&!e.boneco){e.vy=-380;e.noChao=false;}
+   faiscas('gelo',e.x+e.w/2,e.y+e.h/2,9);
+  }
+  if(v.trilha>.1){v.trilha=0;faiscas('gelo',v.x+110,v.y+290,2);}
+  if(v.t>=v.duracao)v.el.remove();
+ }
+ tornados=tornados.filter(v=>v.t<v.duracao);
+}
+
+function usarSuper(t){
+ if(estado!=='jogando'||!SUPER[t]||recargasSuper[t]>0||player.conjuracao||player.ataque?.passaro)return;
+ if(['giro','terra'].includes(t)&&(!player.noChao||player.agachado)){aviso('Fique de pé no chão para usar este especial.');return;}
+ const poder=SUPER[t],face=direcao;recargasSuper[t]=poder.tempo;atualizarSupers(0);
+ iniciarCinema();
+ if(t==='terra'){
+  player.ataque=null;player.comboFila=0;player.mortal=false;bufferPulo=0;player.vx=0;
+  player.conjuracao={tipo:'tornado',t:0,face,lancado:false};aviso(poder.nome+'!');return;
+ }
+ if(t==='giro'){
+  player.ataque=null;player.comboFila=0;player.mortal=false;bufferPulo=0;player.vx=0;
+  player.conjuracao={tipo:'espinhos',t:0,face,lancado:false};
+  player.el.style.setProperty('--cor-magia',PODERES.gelo.cor);aviso(poder.nome+'!');return;
+ }
+ iniciarGolpe(player,t==='terra'?2:t==='onda'?4:1);player.comboFila=0;
+ if(t==='onda'){
+  player.mortal=false;player.ataque.etapa=4;player.ataque.duracao=.82;player.ataque.passaro=true;
+  aviso('Fênix azul!');return;
+ }
+
 }
 $('menuAbrir').addEventListener('click',()=>abrirMenu());
 for(const b of $('menuAbas').querySelectorAll('button'))b.addEventListener('click',()=>renderMenu(b.dataset.aba));
@@ -759,8 +991,43 @@ function acertarPoder(e,tipo,face){
  if(e.ativo&&tipo==='gelo')e.gelado=e.chefe?1.5:3;
  return true;
 }
+
+function criarEspinhosGelo(face){
+ som('somGeloEspecial');
+ const pe=player.y+player.h,origem=player.x+player.w/2;
+ const limite=modoDojo?larguraDojo()-18:LARGURA;
+ // Oito espinhos, até 350 px; nunca se propagam além deste conjunto.
+ for(let i=0;i<8;i++){
+  const centro=origem+face*(35+i*45),x=centro-15;
+  if(x<18||x+30>limite)break;
+  if(aguas.some(a=>centro>=a.x&&centro<=a.x+a.w))break;
+  const suporte=plataformas.filter(p=>centro>=p.x&&centro<=p.x+p.w&&Math.abs(p.y-pe)<12)[0];
+  const piso=suporte?suporte.y:CHAO;
+  if(Math.abs(piso-pe)>12)break;
+  if(plataformas.some(p=>centro>=p.x&&centro<=p.x+p.w&&p.y<pe&&p.y+p.h>pe-14))break;
+  const el=document.createElement('div');el.className='espinho-gelo';el.setAttribute('aria-hidden','true');el.innerHTML='<i class="cristal-face sombra"></i><i class="cristal-face luz"></i><i class="cristal-nucleo"></i><i class="cristal-lasca esquerda"></i><i class="cristal-lasca direita"></i><i class="cristal-brilho"></i>';
+  const h=48+(i%3)*13;el.style.width='30px';el.style.height=h+'px';el.style.transform=`translate(${x}px,${piso-h}px) scaleY(0)`;
+  $('mundo').appendChild(el);espinhosGelo.push({el,x,y:piso-h,piso,w:30,h,t:-i*.055,alvos:new Set(),face});
+ }
+ faiscas('gelo',origem+face*25,pe-4,22);
+ efeitoPoder('gelo',origem-15,pe-13,60,18);
+}
+function atualizarEspinhosGelo(dt){
+ for(const p of espinhosGelo){
+  p.t+=dt;if(p.t<0)continue;
+  const crescer=suave(p.t/.14),sumir=suave((p.t-.75)/.4),altura=p.h*crescer*(1-sumir);
+  p.el.style.transform=`translate(${p.x}px,${p.y}px) scaleY(${crescer*(1-sumir)})`;p.el.style.opacity=String(1-sumir);p.el.style.setProperty('--reflexo',String(.35+.5*Math.pow(Math.sin(p.t*8),2)));
+  if(p.t<.75)for(const e of inimigos){
+   if(!e.ativo||p.alvos.has(e)||!sobrepoe({x:p.x,y:p.piso-altura,w:p.w,h:altura},e))continue;
+   if(e.imune<=0){ferirInimigo(e,SUPER.giro.dano,p.face*220,false,4);if(e.ativo)e.gelado=e.chefe?1.5:3;p.alvos.add(e);efeitoPoder('gelo',e.x,e.y,e.w,e.h);}
+  }
+  if(p.t>=1.15)p.el.remove();
+ }
+ espinhosGelo=espinhosGelo.filter(p=>p.t<1.15);
+}
+
 function usarPoder(tipo){
- if(estado!=='jogando'||!PODERES[tipo]||recargaPoder>0)return;
+ if(estado!=='jogando'||!PODERES[tipo]||recargaPoder>0||player.conjuracao||player.ataque?.passaro)return;
  if(!modoDojo&&!cargas[tipo]){aviso(`Encontre um cristal de ${PODERES[tipo].nome.toLowerCase()}.`);return;}
  if(!modoDojo){cargas[tipo]--;salvarPerfil();}recargaPoder=.7;painelPoderes();
  player.ataque=null;player.comboFila=0;player.mortal=false;
@@ -769,6 +1036,8 @@ function usarPoder(tipo){
 }
 function lancarPoder(tipo,face){
  som('somEspada');
+ if(tipo==='espinhos'){criarEspinhosGelo(face);return;}
+ if(tipo==='tornado'){criarTornado(face);return;}
  const cy=player.y+player.h*.55;
  faiscas(tipo,player.x+player.w/2+face*20,cy,12);
  if(tipo==='forca'){
@@ -787,12 +1056,17 @@ function lancarPoder(tipo,face){
  }
 }
 function atualizarPoderes(dt){
+ atualizarTornados(dt);
+ atualizarCinema(dt);
+ atualizarEspinhosGelo(dt);
+ atualizarAvesAzuis(dt);
+ atualizarFogoAzul(dt);
  atualizarSupers(dt);
  moverParticulas(dt);
  if(player.conjuracao){
   const c=player.conjuracao;c.t+=dt;
-  if(c.t>=.18&&!c.lancado){c.lancado=true;lancarPoder(c.tipo,c.face);}
-  if(c.t>=.6)player.conjuracao=null;
+  if(c.t>=(c.tipo==='tornado'?.5:c.tipo==='espinhos'?.46:.18)&&!c.lancado){c.lancado=true;lancarPoder(c.tipo,c.face);}
+  if(c.t>=(c.tipo==='tornado'?1.05:c.tipo==='espinhos'?.9:.6))player.conjuracao=null;
  }
  recargaPoder=Math.max(0,recargaPoder-dt);
  for(const e of inimigos){
@@ -877,7 +1151,7 @@ function prepararAmbiente(){
 
 function carregarFase(){
  $('tela').dataset.dojo=modoDojo?'sim':'nao';
- limparControles();parada=0;projeteis=[];efeitosPoder=[];particulasPoder=[];recargaPoder=0;$('mundo').replaceChildren();$('mundo').style.width=LARGURA+'px';plataformas=[];itens=[];inimigos=[];fragmentos=[];aguas=[];peixes=[];ultimoSeguro=50;
+ encerrarCinema();limparControles();parada=0;tornados=[];explosoesAzuis=[];espinhosGelo=[];avesAzuis=[];projeteis=[];efeitosPoder=[];particulasPoder=[];recargaPoder=0;$('mundo').replaceChildren();const escuro=document.createElement('div');escuro.className='cinema-fundo';escuro.setAttribute('aria-hidden','true');$('mundo').appendChild(escuro);$('mundo').style.width=LARGURA+'px';plataformas=[];itens=[];inimigos=[];fragmentos=[];aguas=[];peixes=[];ultimoSeguro=50;
  $('tela').dataset.tema=FASES[fase].tema;$('paisagem').style.backgroundImage=`url("${FASES[fase].fundo}")`;$('tela').style.setProperty('--soil',FASES[fase].solo);$('tela').style.setProperty('--grass',FASES[fase].borda);$('detalhesCenario').style.backgroundImage=detalheCenario(FASES[fase].tema);$('nomeFase').textContent=`Fase ${fase+1} · ${FASES[fase].nome}`;
  aguas.push({x:1580+(fase%3)*800,w:120+(fase%3)*10});
  let inicio=0;
@@ -929,7 +1203,7 @@ function acao(){
  abrirMenu();
 }
 function pausar(){if(estado!=='jogando')return;estado='pausa';mostrarPainel('Jogo pausado','Seu progresso está guardado nesta partida.','Continuar');}
-function pedirPulo(){if(estado==='jogando')bufferPulo=.14;}
+function pedirPulo(){if(['espinhos','tornado'].includes(player?.conjuracao?.tipo))return;if(estado==='jogando')bufferPulo=.14;}
 function dano(e){
  if(modoDojo)return;
  if(player.imune>0)return;player.reacao=.32;parada=.05;saude=Math.max(0,saude-(e?(e.poder??20):25));vidas=saude>0?1:0;placar();som('somDano');
@@ -1002,6 +1276,7 @@ function atualizarGolpe(n,dt){
  n.esperaAtaque=Math.max(0,(n.esperaAtaque||0)-dt);
  const a=n.ataque;if(!a)return;a.t+=dt;
  const proporcao=a.t/a.duracao;
+ if(n===player&&a.passaro&&!a.lancouPassaro&&proporcao>=.48){a.lancouPassaro=true;lancarAveAzul(a.face);}
  if(proporcao>=(n===player?.34:.38)&&proporcao<=(n===player?.62:.78)){
   const alcance=n===player?(a.etapa===3?76:a.etapa===4?96:a.etapa===5?66:58):(n.chefe?84:52);
   const area={x:a.face>0?n.x+n.w-8:n.x-alcance+8,y:a.etapa===5?n.y+n.h-24:n.y+8,w:alcance,h:a.etapa===5?24:n.chefe?70:46};
@@ -1086,9 +1361,9 @@ function atualizar(dt){
  player.imune=Math.max(0,player.imune-dt);bufferPulo=Math.max(0,bufferPulo-dt);
  coyote=player.noChao?.1:Math.max(0,coyote-dt);
  const acoes=new Set([...teclas,...toques.values()]);
- const querAgachar=acoes.has('agachar')||analogico.baixo;
+ const querAgachar=['espinhos','tornado'].includes(player.conjuracao?.tipo)?false:(acoes.has('agachar')||analogico.baixo);
  const eixoTeclado=Number(acoes.has('direita'))-Number(acoes.has('esquerda'));
- const eixo=eixoTeclado||analogico.x;
+ const eixo=['espinhos','tornado'].includes(player.conjuracao?.tipo)?0:(eixoTeclado||analogico.x);
  // Agachar = 46 px; se houver bloco no caminho ou por cima, vira rastejo (26 px).
  let altura=querAgachar?46:60;
  if(querAgachar){const sonda={x:player.x+eixo*10,y:player.y+player.h-46,w:player.w,h:46};if(plataformas.some(p=>sobrepoe(sonda,p)))altura=26;}
@@ -1152,7 +1427,11 @@ function atualizar(dt){
 function desenhar(){if(!player)return;
  camera=modoDojo?0:Math.max(0,Math.min(LARGURA-$('tela').clientWidth,player.x-$('tela').clientWidth*.4));
  $('arvoresVivas').style.transform=`translateX(${-((camera*.36)%1200)}px)`;
- $('detalhesCenario').style.backgroundPosition=`${-camera*.48}px 0`;$('mundo').style.transform=`translateX(${-camera}px)`;$('paisagem').style.backgroundPosition=`${-camera*.22}px 0`;
+ $('detalhesCenario').style.backgroundPosition=`${-camera*.48}px 0`;const zoom=1+(poucoMovimento?.06:.32)*cinema.forca;
+ $('mundo').style.transformOrigin=`${player.x+player.w/2}px ${player.y+player.h/2}px`;
+ $('mundo').style.transform=`translateX(${-camera}px) scale(${zoom})`;
+ const escuro=$('mundo').querySelector('.cinema-fundo');if(escuro){escuro.style.left=(camera-80)+'px';escuro.style.width=($('tela').clientWidth+160)+'px';escuro.style.opacity=String(cinema.forca);}
+ $('paisagem').style.backgroundPosition=`${-camera*.22}px 0`;
  player.el.style.transform=`translate(${player.x}px,${player.y}px)`;player.el.querySelector('.ninja-corpo').style.scale=String(player.conjuracao?player.conjuracao.face:player.mortal?player.faceMortal:player.ataque?player.ataque.face:direcao)+' 1';
  player.el.classList.toggle('dano',player.reacao>0);
  animarNinja();
