@@ -357,6 +357,73 @@ button{border:0;border-radius:12px;background:#f4cc52;color:#17202e;padding:14px
 .cristal-lasca{top:52%;bottom:0;width:17px;background:linear-gradient(110deg,#dfffff,#7bcbe7aa 45%,#266ea8);clip-path:polygon(40% 0,86% 47%,100% 95%,24% 100%,0 60%);transform-origin:50% 100%}
 .cristal-lasca.esquerda{left:-8px;transform:rotate(-22deg)}.cristal-lasca.direita{left:22px;top:40%;transform:rotate(20deg)}
 .cristal-brilho{background:linear-gradient(118deg,transparent 30%,#fff9 34%,transparent 38%,transparent 60%,#c6ffff66 63%,transparent 66%);clip-path:polygon(50% 0,85% 39%,100% 89%,72% 100%,15% 96%,0 73%,22% 28%);opacity:var(--reflexo,.6)}
+
+/* ===== UPGRADE PROFISSIONAL 3D ===== */
+:root{--noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+body{background:radial-gradient(ellipse at 50% 0,#22345a,#0a0f1c 70%) fixed}
+header{background:linear-gradient(#1d2c4a,#111a2e);border:1px solid #ffffff1c;border-radius:14px;padding:10px 16px;box-shadow:0 8px 24px #0008,inset 0 1px #ffffff22}
+.placar span{background:#0006;border:1px solid #ffe27a33;border-radius:999px;padding:4px 12px;text-shadow:0 1px 2px #000}
+header button,#painel button{background:linear-gradient(#ffe07a,#e9a92f);box-shadow:0 4px 0 #9a6414,0 8px 14px #0006,inset 0 1px #fff9;transition:transform .12s,filter .12s}
+header button:hover:not(:disabled),#painel button:hover:not(:disabled){filter:brightness(1.1);transform:translateY(-1px)}
+header button:active:not(:disabled),#painel button:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 #9a6414}
+#tela{box-shadow:0 24px 60px #000c,0 0 0 2px #ffffff1a}
+#tela::after{content:'';position:absolute;inset:0;z-index:6;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,#0000 55%,#000a 115%),linear-gradient(#fff2,#0000 30%,#0000 70%,#0003)}
+/* texturas */
+.chao{background:linear-gradient(#0000,#0006),var(--noise),radial-gradient(circle at 20% 40%,#ffffff1a 0 3px,transparent 4px) 0 0/34px 26px,radial-gradient(circle at 70% 70%,#0005 0 4px,transparent 5px) 0 0/47px 31px,repeating-linear-gradient(0deg,transparent 0 14px,#0003 14px 16px),var(--soil);border-top:10px solid var(--grass);box-shadow:inset 0 12px 14px #0005,inset 0 -8px 12px #0006,0 -3px 0 #ffffff25}
+.chao::before{content:'';position:absolute;left:0;right:0;top:-18px;height:8px;background:linear-gradient(135deg,var(--grass) 25%,transparent 25%) 0 0/8px 8px,linear-gradient(225deg,var(--grass) 25%,transparent 25%) 0 0/8px 8px;filter:brightness(1.15)}
+.bloco{background:linear-gradient(#fff3,#0000 40%,#0005),var(--noise),repeating-linear-gradient(0deg,transparent 0 15px,#3b1d0d 16px 18px),repeating-linear-gradient(90deg,#d99a55 0 35px,#5f3218 36px 39px);border:2px solid #1d1209;border-radius:5px;box-shadow:inset 3px 3px 0 #ffffff50,inset -3px -4px 0 #0006,0 7px 10px #0007,0 2px 0 #0008;filter:saturate(.9)}
+/* personagem: volume, brilho e sombra de contato */
+.ninja::after,.stickdog::after{content:'';position:absolute;left:8%;right:8%;bottom:-4px;height:7px;border-radius:50%;background:radial-gradient(#000a,#0000 70%);z-index:-1}
+.ninja{filter:drop-shadow(0 0 1.5px #8fd3ff) drop-shadow(0 3px 3px #0007)}
+.ninja-cabeca{box-shadow:inset -4px -5px 7px #0009,inset 3px 3px 5px #ffffff30}
+.ninja-tronco,.ninja-braco,.ninja-braco i,.ninja-perna,.ninja-perna i{box-shadow:inset -2px -2px 3px #0008,inset 1px 1px 2px #ffffff28}
+.ninja-olhos{background:#ffe9c0;box-shadow:0 0 5px 1px #ffb15a99}
+.ninja-faixa,.ninja-fita,.ninja-cinto{box-shadow:0 0 6px #ff4d9a99,inset 0 -1px #0005}
+.ninja-espada{filter:drop-shadow(0 0 3px #8fe0ff) brightness(1.15)}
+/* gato selvagem 3D */
+.stickdog{perspective:260px;filter:drop-shadow(0 3px 3px #0008) drop-shadow(0 0 1.5px #ff3355aa)}
+.dog-corpo{transform-style:preserve-3d}
+.dog-b,.dog-d{translate:0 0 -8px;filter:brightness(.6)}.dog-cabeca{translate:0 0 7px}.dog-a,.dog-c{translate:0 0 5px}
+.dog-tronco{background:radial-gradient(ellipse at 50% 15%,#5a7086,#0000 62%),repeating-linear-gradient(100deg,#0000 0 5px,#070d16 5px 8px),linear-gradient(#2c3b4b,#0d1520);box-shadow:inset 0 3px #7c8fa3,inset 0 -4px 6px #000a}
+.dog-cabeca{background:radial-gradient(circle at 35% 25%,#4a5c6e,#1c2733 70%);box-shadow:inset -3px -4px 6px #000a,2px 3px #0a121c}
+.dog-cabeca::before{left:2px;top:-11px;width:9px;height:13px;border:0;background:linear-gradient(#556879,#141d29);clip-path:polygon(0 100%,20% 0,100% 100%)}
+.dog-orelha{left:12px;top:-9px;width:8px;height:11px;background:linear-gradient(#4a5b6c,#111a25);clip-path:polygon(0 100%,80% 0,100% 100%);z-index:-1}
+.dog-bigode{left:14px;top:12px;width:16px;height:6px;background:repeating-linear-gradient(8deg,#dfe8f2 0 1px,transparent 1px 3px);opacity:.7;z-index:5}
+.dog-olho{width:8px;height:4px;background:radial-gradient(#fff 0 20%,#ff2a4a 45%,#a00020);box-shadow:0 0 10px 2px #ff173dcc;animation:olhoGato 1.4s ease-in-out infinite alternate}
+@keyframes olhoGato{to{box-shadow:0 0 16px 4px #ff173d;filter:brightness(1.4)}}
+.dog-presa{border-top-color:#f8f4e8;filter:drop-shadow(0 1px 1px #0008)}
+.dog-cauda{background:linear-gradient(90deg,#0c141f,#3a4d61);transform-origin:100% 50%;animation:caudaGato .7s ease-in-out infinite alternate}
+@keyframes caudaGato{from{transform:rotate(-38deg)}to{transform:rotate(-8deg)}}
+.dog-perna{background:linear-gradient(90deg,#425468,#1a2635);box-shadow:inset -1px 0 2px #000a}
+.dog-perna::after{content:'';position:absolute;left:-1px;bottom:-2px;width:8px;height:4px;border-radius:3px 4px 2px 2px;background:#1b2836;box-shadow:inset 0 -1px #dfe8f2}
+/* peixe-piranha 3D */
+.piranha{background:none!important;overflow:visible;perspective:110px;filter:drop-shadow(0 2px 3px #0009)}
+.piranha::before,.piranha::after{display:none}
+.piranha em{position:absolute;left:-8px;top:-3px;width:38px;height:19px;transform-style:preserve-3d;animation:nado .45s ease-in-out infinite alternate}
+@keyframes nado{from{transform:rotateY(-30deg) rotateZ(-4deg)}to{transform:rotateY(30deg) rotateZ(4deg)}}
+.piranha u{position:absolute;left:9px;top:0;width:28px;height:19px;border-radius:55% 60% 55% 45%/60% 60% 45% 45%;background:radial-gradient(ellipse at 40% 22%,#f0fff8 0 6%,transparent 28%),repeating-radial-gradient(circle at 30% 60%,#0003 0 2px,transparent 2px 5px),linear-gradient(#20363f 0 38%,#86ab9f 55%,#e2503a 78%,#ff8a52);box-shadow:inset -3px -4px 6px #0008;translate:0 0 3px}
+.piranha s{position:absolute;left:-1px;top:3px;width:14px;height:14px;background:linear-gradient(90deg,#7a1f2a,#e2503a);clip-path:polygon(0 0,100% 38%,100% 62%,0 100%,28% 50%);transform-origin:100% 50%;animation:cola .22s ease-in-out infinite alternate;translate:0 0 -2px}
+@keyframes cola{from{transform:rotateY(-45deg)}to{transform:rotateY(45deg)}}
+.piranha b{position:absolute;left:15px;top:-6px;width:13px;height:9px;background:linear-gradient(#3b6270,#1b3038);clip-path:polygon(0 100%,35% 0,100% 100%);translate:0 0 -1px}
+.piranha em i{border:0;right:auto;bottom:auto;left:29px;top:9px;width:10px;height:8px;background:#fff;clip-path:polygon(0 0,100% 0,90% 60%,75% 100%,60% 55%,45% 100%,30% 55%,15% 100%,5% 55%);translate:0 0 5px}
+.piranha em::after{content:'';position:absolute;left:30px;top:4px;width:5px;height:5px;border-radius:50%;background:radial-gradient(#fff 0 25%,#ff2038 40%,#800);box-shadow:0 0 6px 2px #ff2038cc;translate:0 0 6px}
+/* água (WebGL) */
+.agua.gl{background:none;border:0;box-shadow:none;animation:none;overflow:visible}.agua.gl::before{display:none}
+.agua-gl{position:absolute;left:0;top:-12px;width:100%;height:calc(100% + 12px);pointer-events:none}
+/* golpes e efeitos especiais */
+.efeito-poder{mix-blend-mode:screen;filter:brightness(1.35) saturate(1.3) drop-shadow(0 0 10px var(--cor,#7fe4ff))}
+.fx-corte{position:absolute;z-index:8;pointer-events:none;width:var(--s,90px);height:var(--s,90px);margin:calc(var(--s,90px)/-2) 0 0 calc(var(--s,90px)/-2);border-radius:50%;background:radial-gradient(circle,transparent 52%,#3a8cff44 56%,#7fe4ff99 60%,#fff 63% 66%,#7fe4ff99 69%,#3a8cff44 73%,transparent 78%);-webkit-mask:conic-gradient(from 230deg,#0000 0deg,#000 50deg,#000 90deg,#0000 135deg,#0000 360deg);mask:conic-gradient(from 230deg,#0000 0deg,#000 50deg,#000 90deg,#0000 135deg,#0000 360deg);mix-blend-mode:screen;animation:corte .32s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+@keyframes corte{0%{opacity:0;transform:scaleX(var(--f,1)) scaleY(var(--y,1)) rotate(var(--a0)) scale(.55)}20%{opacity:1}100%{opacity:0;transform:scaleX(var(--f,1)) scaleY(var(--y,1)) rotate(var(--a1)) scale(1.15)}}
+.fx-fagulha{position:absolute;z-index:8;width:4px;height:4px;margin:-2px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px var(--c,#7fe4ff);pointer-events:none;animation:fagulha .6s ease-out both}
+@keyframes fagulha{60%{translate:calc(var(--dx)*.85) calc(var(--dy)*.85)}to{translate:var(--dx) calc(var(--dy) + 36px);opacity:0;scale:.2}}
+.fx-onda{position:absolute;z-index:8;width:20px;height:20px;margin:-10px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 12px var(--c,#7fe4ff),inset 0 0 8px var(--c,#7fe4ff);pointer-events:none;animation:onda .45s ease-out both}
+@keyframes onda{to{transform:scale(var(--k,5));opacity:0;border-width:1px}}
+.fx-poeira{position:absolute;z-index:3;width:9px;height:9px;margin:-4px;border-radius:50%;background:#fff6;filter:blur(1.5px);pointer-events:none;animation:poeira .5s ease-out both}
+@keyframes poeira{to{translate:var(--dx) -8px;scale:2.2;opacity:0}}
+#tela.tremer{animation:tremer .28s linear}#tela.dano{animation:tremer .32s linear,flashDano .45s ease-out}
+@keyframes tremer{20%{translate:-4px 2px}40%{translate:4px -3px}60%{translate:-3px -2px}80%{translate:2px 3px}}
+@keyframes flashDano{0%{box-shadow:inset 0 0 90px 24px #ff2233cc}to{box-shadow:inset 0 0 0 0 #f000}}
+@media(prefers-reduced-motion:reduce){.piranha em,.piranha s,.dog-cauda,.dog-olho{animation:none}}
 </style>
 </head>
 <body>
@@ -483,7 +550,7 @@ function poseGolpe(n){
 function sobreAgua(n){return aguas.some(a=>n.x+n.w/2>a.x&&n.x+n.w/2<a.x+a.w);}
 function criarDog(){
  const el=document.createElement('div');el.className='entidade stickdog';el.setAttribute('aria-label','Felino selvagem com olhos vermelhos e presas');el.style.width='62px';el.style.height='42px';
- el.innerHTML='<div class="ninja-corpo dog-corpo"><span class="dog-tronco"></span><span class="dog-cauda"></span><span class="dog-perna dog-a"></span><span class="dog-perna dog-b"></span><span class="dog-perna dog-c"></span><span class="dog-perna dog-d"></span><span class="dog-cabeca"><i class="dog-olho"></i><i class="dog-mandibula"></i><i class="dog-presa presa-a"></i><i class="dog-presa presa-b"></i></span></div><div class="barra-vida" role="progressbar" aria-label="Vida do stickdog" aria-valuemin="0" aria-valuemax="2" aria-valuenow="2"><i></i></div>';
+ el.innerHTML='<div class="ninja-corpo dog-corpo"><span class="dog-tronco"></span><span class="dog-cauda"></span><span class="dog-perna dog-a"></span><span class="dog-perna dog-b"></span><span class="dog-perna dog-c"></span><span class="dog-perna dog-d"></span><span class="dog-cabeca"><i class="dog-orelha"></i><i class="dog-bigode"></i><i class="dog-olho"></i><i class="dog-mandibula"></i><i class="dog-presa presa-a"></i><i class="dog-presa presa-b"></i></span></div><div class="barra-vida" role="progressbar" aria-label="Vida do stickdog" aria-valuemin="0" aria-valuemax="2" aria-valuenow="2"><i></i></div>';
  $('mundo').appendChild(el);return el;
 }
 function animarNinja(n=player){
@@ -1542,6 +1609,72 @@ async function carregarRecursos(){
  $('menuAbrir').disabled=false;abrirMenu();
 }
 carregarRecursos();requestAnimationFrame(quadro);
+
+/* ===== UPGRADE 3D: efeitos, golpes, peixes e água WebGL ===== */
+(function(){
+const M=document.getElementById('mundo'),T=document.getElementById('tela'),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const R=(a,b)=>a+Math.random()*(b-a);
+function fx(c,x,y,st,ms){const e=document.createElement('div');e.className=c;e.style.left=x+'px';e.style.top=y+'px';for(const k in st||{})e.style.setProperty(k,st[k]);M.appendChild(e);setTimeout(()=>e.remove(),ms||700);return e}
+function fagulhas(x,y,n,cor,f){for(let i=0;i<n;i++){const a=R(0,6.283),d=R(.4,1)*(f||60);fx('fx-fagulha',x,y,{'--dx':Math.cos(a)*d+'px','--dy':Math.sin(a)*d-10+'px','--c':cor})}}
+function onda(x,y,cor,k){fx('fx-onda',x,y,{'--c':cor,'--k':k||5},500)}
+function tremer(c){if(RM)return;T.classList.remove('tremer','dano');void T.offsetWidth;T.classList.add(c)}
+const px=()=>player.x+player.w/2,py=()=>player.y+player.h*.5;
+// corte de espada em arco
+function corte(et,f){const x=px()+f*12,y=et===5?player.y+player.h*.85:py()-4,d=(player.ataque?player.ataque.duracao*.3:.15);
+ const c={2:[-20,115,100,1],4:[-105,75,130,1],5:[60,-45,100,.45]}[et]||[-75,55,88,1];
+ fx('fx-corte',x,y,{'--f':f,'--a0':c[0]+'deg','--a1':c[1]+'deg','--s':c[2]+'px','--y':c[3],'--d':d+'s'},d*1000+450);
+ if(et===4)fx('fx-corte',x,y,{'--f':f,'--a0':'-40deg','--a1':'110deg','--s':'90px','--d':d+.12+'s'},d*1000+650)}
+try{const _g=iniciarGolpe;iniciarGolpe=function(n,e){_g.apply(this,arguments);try{if(n===player&&n.ataque)corte(n.ataque.etapa,n.ataque.face)}catch(x){}}}catch(x){}
+// reações a sons: dano, morte de inimigo, pulo e poderes
+const cores={somGeloEspecial:'#9fe8ff',somTornado:'#dff6ff',somFenix:'#ff9a3c',somMoeda:'#ffd95a',somCoracao:'#ff6f9a'};
+try{const _s=som;som=function(id){_s.apply(this,arguments);try{
+ if(id==='somDano'){tremer('dano');fagulhas(px(),py(),10,'#ff4a4a',50)}
+ else if(id==='somMorteInimigo'){const x=px()+direcao*42;fagulhas(x,py(),18,'#ffcf6a',80);fagulhas(x,py(),8,'#ff5a3c',60);onda(x,py(),'#ffd36b',4);tremer('tremer');try{parada=Math.max(parada||0,.06)}catch(e){}}
+ else if(id==='somPulo'){for(let i=0;i<4;i++)fx('fx-poeira',px()+R(-10,10),player.y+player.h-2,{'--dx':R(-18,18)+'px'},500)}
+ else if(cores[id]){fagulhas(px(),py(),14,cores[id],70);onda(px(),py(),cores[id],7)}
+}catch(e){}}}catch(x){}
+// respingos quando o peixe cruza a superfície
+function respingo(x){fagulhas(x,436,9,'#bff2ff',36);onda(x,440,'#7fe4ff',3)}
+try{const _p=atualizarPeixes;atualizarPeixes=function(dt){const a=peixes.map(f=>f.y);_p.apply(this,arguments);try{peixes.forEach((f,i)=>{if(a[i]!=null&&(a[i]<441)!==(f.y<441))respingo(f.x+11)})}catch(e){}}}catch(x){}
+// peixes: estrutura 3D em camadas
+function peixe(n){if(n.classList&&n.classList.contains('piranha')&&!n.dataset.v){n.dataset.v=1;n.innerHTML='<em><u></u><s></s><b></b><i></i></em>'}}
+new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(peixe))).observe(M,{childList:true});
+M.querySelectorAll('.piranha').forEach(peixe);
+// água: shader WebGL (ondas, cáusticas, raios de luz, espuma e brilho)
+const glc=document.createElement('canvas');glc.width=1024;glc.height=256;
+const gl=glc.getContext('webgl',{alpha:true,premultipliedAlpha:true});if(!gl)return;
+const VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+const FS=`precision mediump float;uniform vec2 R;uniform float T,O,S;
+float h(float x){return .5*sin(x*.09+T*1.7)+.3*sin(x*.21-T*2.3)+.2*sin(x*.47+T*3.1);}
+void main(){vec2 Rs=R/S;vec2 f=vec2(gl_FragCoord.x,R.y-gl_FragCoord.y)/S;float top=12.;
+float d=f.y-(top+h(f.x+O)*2.6);if(d<-1.5){gl_FragColor=vec4(0.);return;}
+float dp=clamp((f.y-top)/(Rs.y-top),0.,1.);
+vec3 c=mix(vec3(.16,.72,.86),vec3(.03,.16,.32),pow(dp,.7));
+vec2 q=vec2((f.x+O)*.11+T*.6,f.y*.16);float ca=0.;
+for(int i=0;i<3;i++){q+=vec2(sin(q.y*1.7+T),cos(q.x*1.3-T*.8))*.55;ca+=abs(sin(q.x*2.1)*sin(q.y*2.1));}
+ca=pow(1.-clamp(ca/3.,0.,1.),4.);c+=vec3(.35,.9,.95)*ca*(1.-dp)*.9;
+c+=vec3(.2,.5,.6)*pow(max(0.,sin((f.x+O)*.07+f.y*.02+T*.4)),6.)*(1.-dp)*.35;
+c+=pow(max(0.,sin(f.x*.6+T*4.)*sin(f.x*.23-T*2.7)),10.)*smoothstep(6.,0.,d)*.9;
+c*=.72+.28*smoothstep(0.,14.,min(f.x,Rs.x-f.x));
+float foam=smoothstep(2.6,0.,d)*(.6+.4*sin(f.x*.8+T*3.));c=mix(c,vec3(.92,1.,1.),clamp(foam,0.,1.));
+float a=smoothstep(-1.5,.5,d);gl_FragColor=vec4(c*a,a);}`;
+function sh(t,s){const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o}
+const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,VS));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(pr);
+if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
+gl.useProgram(pr);gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+const lp=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
+const uR=gl.getUniformLocation(pr,'R'),uT=gl.getUniformLocation(pr,'T'),uO=gl.getUniformLocation(pr,'O'),uS=gl.getUniformLocation(pr,'S');
+const dpr=Math.min(2,devicePixelRatio||1);
+function quadro(t){requestAnimationFrame(quadro);const tr=T.getBoundingClientRect();
+ for(const el of M.querySelectorAll('.agua')){const r=el.getBoundingClientRect();if(r.right<tr.left||r.left>tr.right)continue;
+  let cv=el._cv;if(!cv){cv=el._cv=document.createElement('canvas');cv.className='agua-gl';el.classList.add('gl');el.appendChild(cv);el._c=cv.getContext('2d');el._o=parseFloat(el.style.left)||0}
+  const w=Math.min(500,Math.round(el.offsetWidth*dpr)),h=Math.min(250,Math.round((el.offsetHeight+12)*dpr));
+  if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}
+  gl.viewport(0,0,w,h);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.uniform2f(uR,w,h);gl.uniform1f(uT,RM?0:t/1000);gl.uniform1f(uO,el._o);gl.uniform1f(uS,dpr);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  el._c.clearRect(0,0,w,h);el._c.drawImage(glc,0,glc.height-h,w,h,0,0,w,h)}}
+requestAnimationFrame(quadro);
+})();
 </script>
 </body>
 </html>
